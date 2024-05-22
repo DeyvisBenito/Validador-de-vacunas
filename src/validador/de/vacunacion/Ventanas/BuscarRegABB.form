@@ -376,7 +376,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Departamento de  vivienda"/>
+            <Property name="text" type="java.lang.String" value="Departamento de  Vivienda"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jlbMuni">
@@ -385,7 +385,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Municipio de vivienda"/>
+            <Property name="text" type="java.lang.String" value="Municipio de Vivienda"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jbtnGuardarEdit">

@@ -5,6 +5,7 @@
 package validador.de.vacunacion;
 
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,7 +15,7 @@ public class ArbolAVL {
     
     
     
-    static NodoArbolAVL raizAVL;
+    public static NodoArbolAVL raizAVL;
     
     public ArbolAVL(){
         if(this.raizAVL==null){
@@ -146,12 +147,21 @@ public class ArbolAVL {
         }
     }
     
-    //recorrido InOrden
-    public void InOrden(NodoArbolAVL r){
-        if(r!=null){
-            InOrden(r.hijoIzq);
-            System.out.println(r.dpi+ " ");
-            InOrden(r.hijoDer);
+    // Método de recorrido en preorden que acepta el modelo de la tabla
+    public void inOrden(NodoArbolAVL r, DefaultTableModel modelo) {
+        if (r != null) {
+           
+            inOrden(r.hijoIzq, modelo);
+            // Agregar el nodo actual al modelo de la tabla
+            modelo.addRow(new Object[]{
+                r.nombre,
+                r.dpi,
+                r.cantDosis,
+                r.fecV1,
+                r.fecV2,
+                r.fecV3
+            });
+            inOrden(r.hijoDer, modelo);
         }
     }
     
@@ -165,21 +175,39 @@ public class ArbolAVL {
         
     }
     
-    //recorrido PreOrden
-    public void PreOrden(NodoArbolAVL r){
-        if(r!=null){
-            System.out.println(r.dpi+ " ");
-            PreOrden(r.hijoIzq);
-            PreOrden(r.hijoDer);
+    // Método de recorrido en preorden que acepta el modelo de la tabla
+    public void PreOrden(NodoArbolAVL r, DefaultTableModel modelo) {
+        if (r != null) {
+            // Agregar el nodo actual al modelo de la tabla
+            modelo.addRow(new Object[]{
+                r.nombre,
+                r.dpi,
+                r.cantDosis,
+                r.fecV1,
+                r.fecV2,
+                r.fecV3
+            });
+
+            PreOrden(r.hijoIzq, modelo);
+            PreOrden(r.hijoDer, modelo);
         }
     }
     
-    //recorrido PostOrden
-    public void PostOrden(NodoArbolAVL r){
-        if(r!=null){
-            PostOrden(r.hijoIzq);
-            PostOrden(r.hijoDer);
-            System.out.println(r.dpi+ " ");
+    // Método de recorrido en preorden que acepta el modelo de la tabla
+    public void PostOrden(NodoArbolAVL r, DefaultTableModel modelo) {
+        if (r != null) {
+            PostOrden(r.hijoIzq, modelo);
+            PostOrden(r.hijoDer, modelo);
+            
+            // Agregar el nodo actual al modelo de la tabla
+            modelo.addRow(new Object[]{
+                r.nombre,
+                r.dpi,
+                r.cantDosis,
+                r.fecV1,
+                r.fecV2,
+                r.fecV3
+            });
         }
     }
     
@@ -235,7 +263,44 @@ public class ArbolAVL {
     }
 
     // Método público para eliminar un nodo
-    public void eliminar(long d) {
+    public boolean eliminar(long d) {
         raizAVL = eliminarAVL(raizAVL, d);
+        return true;
+    }
+    
+    
+    // Método para actualizar nodo
+    public boolean actualizarNodo(String nom, long dpi, int cant, String v1, String v2, String v3, String lugar, String depa, String muni, long dpiBusc) {
+        // Buscar el nodo con el dpiBusc
+        NodoArbolAVL nodoAct = buscarNodo(dpiBusc, raizAVL);
+
+        if (nodoAct != null) {
+            // Si el dpi es diferente al dpiBusc, elimina el nodo antiguo y reinserta el nodo actualizado
+            if (dpi != dpiBusc) {
+                eliminar(dpiBusc);
+                NodoArbolAVL nuevoNodo = new NodoArbolAVL(nom, dpi);
+                nuevoNodo.cantDosis = cant;
+                nuevoNodo.fecV1 = v1;
+                nuevoNodo.fecV2 = v2;
+                nuevoNodo.fecV3 = v3;
+                nuevoNodo.lugarV = lugar;
+                nuevoNodo.depa = depa;
+                nuevoNodo.muni = muni;
+                raizAVL = insertarAVL(nuevoNodo, raizAVL);
+            } else {
+                nodoAct.nombre = nom;
+                nodoAct.dpi = dpi;
+                nodoAct.cantDosis = cant;
+                nodoAct.fecV1 = v1;
+                nodoAct.fecV2 = v2;
+                nodoAct.fecV3 = v3;
+                nodoAct.lugarV = lugar;
+                nodoAct.depa = depa;
+                nodoAct.muni = muni;
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 }

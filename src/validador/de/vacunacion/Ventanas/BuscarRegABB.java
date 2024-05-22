@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package validador.de.vacunacion;
+package validador.de.vacunacion.Ventanas;
 
 import javax.swing.JOptionPane;
+import validador.de.vacunacion.ArbolBinarioB;
+import validador.de.vacunacion.NodoArbolBinario;
 
 /**
  *
@@ -136,11 +138,11 @@ public class BuscarRegABB extends javax.swing.JFrame {
 
         jLBDep.setForeground(new java.awt.Color(0, 0, 0));
         jLBDep.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLBDep.setText("Departamento de  vivienda");
+        jLBDep.setText("Departamento de  Vivienda");
 
         jlbMuni.setForeground(new java.awt.Color(0, 0, 0));
         jlbMuni.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbMuni.setText("Municipio de vivienda");
+        jlbMuni.setText("Municipio de Vivienda");
 
         jbtnGuardarEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-guardar-15.png"))); // NOI18N
         jbtnGuardarEdit.setText("Guardar Info.");
@@ -401,6 +403,7 @@ public class BuscarRegABB extends javax.swing.JFrame {
            
            if(resp){
                JOptionPane.showMessageDialog(null, "Actualizacion completada");
+               dpiBuscado=Long.parseLong(jTFDPI.getText());
            }else{
                JOptionPane.showMessageDialog(null, "Actualizacion fallida");
            }

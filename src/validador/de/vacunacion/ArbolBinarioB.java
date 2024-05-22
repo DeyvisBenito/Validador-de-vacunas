@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ArbolBinarioB {
     
-    static NodoArbolBinario raiz;
+    public static NodoArbolBinario raiz;
     
     
     public ArbolBinarioB(){
@@ -137,31 +137,44 @@ public class ArbolBinarioB {
         return aux;
     }
     
-    //Metodo para actualizar nodo
-    public boolean actualizarNodo(String nom, long dpi, int cant, String v1,String v2, String v3, String lugar, String depa, String muni, long dpiBusc){
-        
-        NodoArbolBinario nodoAct=buscarNodo(dpiBusc);
-        
-        if(nodoAct!=null){
-           try{
-            nodoAct.nombre=nom;
-            nodoAct.dpi=dpi;
-            nodoAct.cantDosis=cant;
-            nodoAct.fecV1=v1;
-            nodoAct.fecV2=v2;
-            nodoAct.fecV3=v3;
-            nodoAct.lugarV=lugar;
-            nodoAct.depa=depa;
-            nodoAct.muni=muni;
-            
+    // Método para actualizar nodo
+    public boolean actualizarNodo(String nom, long dpi, int cant, String v1, String v2, String v3, String lugar, String depa, String muni, long dpiBusc) {
+        // Buscar el nodo con el dpiBusc
+        NodoArbolBinario nodoAct = buscarNodo(dpiBusc);
+
+        if (nodoAct != null) {
+            // Si el dpi es diferente al dpiBusc, elimina el nodo antiguo y reinserta el nodo actualizado
+            if (dpi != dpiBusc) {
+                EliminarNodo(dpiBusc);
+                NodoArbolBinario nuevoNodo = new NodoArbolBinario(nom, dpi); 
+                AgregarNodo(nuevoNodo.nombre, nuevoNodo.dpi);
+                
+                NodoArbolBinario nodoActualizar=buscarNodo(dpi);
+                
+                nodoActualizar.cantDosis = cant;
+                nodoActualizar.fecV1 = v1;
+                nodoActualizar.fecV2 = v2;
+                nodoActualizar.fecV3 = v3;
+                nodoActualizar.lugarV = lugar;
+                nodoActualizar.depa = depa;
+                nodoActualizar.muni = muni;
+                
+            } else {
+                // Si el dpi no cambia, simplemente actualiza los valores del nodo existente
+                nodoAct.nombre = nom;
+                nodoAct.dpi = dpi;
+                nodoAct.cantDosis = cant;
+                nodoAct.fecV1 = v1;
+                nodoAct.fecV2 = v2;
+                nodoAct.fecV3 = v3;
+                nodoAct.lugarV = lugar;
+                nodoAct.depa = depa;
+                nodoAct.muni = muni;
+            }
             return true;
-           } catch (NumberFormatException e){
-               return false;
-           }   
-        }else{
+        } else {
             return false;
         }
-        
     }
     
     

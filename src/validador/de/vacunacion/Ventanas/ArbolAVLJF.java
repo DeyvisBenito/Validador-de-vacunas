@@ -2,22 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package validador.de.vacunacion;
+package validador.de.vacunacion.Ventanas;
+
+import validador.de.vacunacion.Ventanas.BuscarRegistroAVL;
 
 /**
  *
  * @author deyvi
  */
-public class ArbolBinarioBJF extends javax.swing.JFrame {
-    
+public class ArbolAVLJF extends javax.swing.JFrame {
+
     /**
-     * Creates new form ArbolBinarioBJF
+     * Creates new form ArbolAVLJF
      */
     
-    BuscarRegABB bcrR= new BuscarRegABB();
-    ImprimirABBjF impR=new ImprimirABBjF();
+    BuscarRegistroAVL buscarAVL= new BuscarRegistroAVL();
     
-    public ArbolBinarioBJF() {
+    public ArbolAVLJF() {
         initComponents();
     }
 
@@ -30,47 +31,40 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenu1 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jbtnBuscarR = new javax.swing.JButton();
-        btnImprimirR = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jbtnBuscarRegistroAVL = new javax.swing.JButton();
+        jBtnImprimirAVL = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMInicio = new javax.swing.JMenu();
 
-        jMenu1.setText("jMenu1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Arbol Binario de Busqueda");
+        jLabel1.setText("Arbol Binario AVL");
 
-        jbtnBuscarR.setText("Buscar Registro");
-        jbtnBuscarR.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbtnBuscarRegistroAVL.setText("Buscar Registro");
+        jbtnBuscarRegistroAVL.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jbtnBuscarRMousePressed(evt);
-            }
-        });
-        jbtnBuscarR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnBuscarRActionPerformed(evt);
+                jbtnBuscarRegistroAVLMousePressed(evt);
             }
         });
 
-        btnImprimirR.setText("Imprimir todos los registros");
-        btnImprimirR.addMouseListener(new java.awt.event.MouseAdapter() {
+        jBtnImprimirAVL.setText("Imprimir todos los registros");
+        jBtnImprimirAVL.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnImprimirRMousePressed(evt);
+                jBtnImprimirAVLMousePressed(evt);
             }
         });
 
-        jButton4.setText("Imprimir grapviz");
+        jButton3.setText("Imprimir grapviz");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-estructura-96.png"))); // NOI18N
 
@@ -79,39 +73,39 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(93, Short.MAX_VALUE)
+                .addComponent(jbtnBuscarRegistroAVL, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(jBtnImprimirAVL, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(344, 344, 344)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jbtnBuscarR, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(btnImprimirR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(35, 35, 35)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(445, 445, 445)
-                .addComponent(jLabel2)
+                        .addGap(424, 424, 424)
+                        .addComponent(jLabel2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtnBuscarR, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnImprimirR, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel1)
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(jbtnBuscarRegistroAVL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnImprimirAVL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
                 .addComponent(jLabel2)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setBackground(new java.awt.Color(153, 255, 153));
 
         jMInicio.setBackground(new java.awt.Color(255, 255, 255));
         jMInicio.setForeground(new java.awt.Color(0, 0, 0));
@@ -134,7 +128,9 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -144,19 +140,16 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMInicioMousePressed
 
-    private void jbtnBuscarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBuscarRActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtnBuscarRActionPerformed
-
-    private void jbtnBuscarRMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnBuscarRMousePressed
+    private void jbtnBuscarRegistroAVLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnBuscarRegistroAVLMousePressed
+        buscarAVL.setVisible(true);
         this.dispose();
-        bcrR.setVisible(true);
-    }//GEN-LAST:event_jbtnBuscarRMousePressed
+    }//GEN-LAST:event_jbtnBuscarRegistroAVLMousePressed
 
-    private void btnImprimirRMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImprimirRMousePressed
+    private void jBtnImprimirAVLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnImprimirAVLMousePressed
+        ImprimirAVLJF arbAVL= new ImprimirAVLJF();
+        arbAVL.setVisible(true);
         this.dispose();
-        impR.setVisible(true);
-    }//GEN-LAST:event_btnImprimirRMousePressed
+    }//GEN-LAST:event_jBtnImprimirAVLMousePressed
 
     /**
      * @param args the command line arguments
@@ -175,33 +168,32 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ArbolBinarioBJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ArbolAVLJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ArbolBinarioBJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ArbolAVLJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ArbolBinarioBJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ArbolAVLJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ArbolBinarioBJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ArbolAVLJF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ArbolBinarioBJF().setVisible(true);
+                new ArbolAVLJF().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnImprimirR;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jBtnImprimirAVL;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMInicio;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jbtnBuscarR;
+    private javax.swing.JButton jbtnBuscarRegistroAVL;
     // End of variables declaration//GEN-END:variables
 }

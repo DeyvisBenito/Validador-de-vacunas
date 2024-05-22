@@ -4,6 +4,8 @@
  */
 package validador.de.vacunacion;
 
+import validador.de.vacunacion.Ventanas.VentanInicial;
+
 /**
  *
  * @author deyvi

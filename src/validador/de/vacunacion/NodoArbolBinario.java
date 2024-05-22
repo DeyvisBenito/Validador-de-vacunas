@@ -10,10 +10,10 @@ package validador.de.vacunacion;
  */
 public class NodoArbolBinario {
    
-    String nombre, depa, muni, fecV1, fecV2, fecV3, lugarV;
-    int cantDosis;
-    long dpi;
-    NodoArbolBinario hijoizq, hijoder;
+    public String nombre, depa, muni, fecV1, fecV2, fecV3, lugarV;
+    public int cantDosis;
+    public long dpi;
+    public NodoArbolBinario hijoizq, hijoder;
     
     public NodoArbolBinario(String nom, long dpi){
         this.nombre=nom;

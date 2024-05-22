@@ -9,10 +9,10 @@ package validador.de.vacunacion;
  * @author deyvi
  */
 public class NodoArbolAVL {
-    String nombre, depa, muni, fecV1, fecV2, fecV3, lugarV;
-    int cantDosis, fe;
-    long dpi;
-    NodoArbolAVL hijoIzq, hijoDer;
+    public String nombre, depa, muni, fecV1, fecV2, fecV3, lugarV;
+    public int cantDosis, fe;
+    public long dpi;
+    public NodoArbolAVL hijoIzq, hijoDer;
     
     public NodoArbolAVL(String nom, long dpi){
         this.nombre=nom;
