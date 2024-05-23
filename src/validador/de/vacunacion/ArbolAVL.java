@@ -303,4 +303,23 @@ public class ArbolAVL {
             return false;
         }
     }
+    
+    
+    // Método para obtener la representación InOrden del árbol
+    public String obtenerInOrden(NodoArbolAVL r) {
+        StringBuilder sb = new StringBuilder();
+        obtenerRegistrosInOrden(r, sb);
+        return sb.toString();
+    }
+    
+    private void obtenerRegistrosInOrden(NodoArbolAVL r, StringBuilder sb) {
+        if (r != null) {
+            obtenerRegistrosInOrden(r.hijoIzq, sb);
+
+            // Agregar el nombre y DPI del nodo al StringBuilder
+            sb.append(r.nombre).append("").append(r.dpi).append("\n");
+            
+            obtenerRegistrosInOrden(r.hijoDer, sb);
+        }
+    }
 }

@@ -189,9 +189,6 @@ public class CargaArchivo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Pedido invalido");
                 }
         }
-        
-        
-        
     }//GEN-LAST:event_jbtnAceptarMousePressed
 
     /**

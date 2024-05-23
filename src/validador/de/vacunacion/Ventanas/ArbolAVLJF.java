@@ -4,6 +4,9 @@
  */
 package validador.de.vacunacion.Ventanas;
 
+import javax.swing.JOptionPane;
+import validador.de.vacunacion.ArbolAVL;
+import validador.de.vacunacion.Conexion;
 import validador.de.vacunacion.Ventanas.BuscarRegistroAVL;
 
 /**
@@ -15,9 +18,9 @@ public class ArbolAVLJF extends javax.swing.JFrame {
     /**
      * Creates new form ArbolAVLJF
      */
-    
-    BuscarRegistroAVL buscarAVL= new BuscarRegistroAVL();
-    
+    BuscarRegistroAVL buscarAVL = new BuscarRegistroAVL();
+    ArbolAVL arbolAVL = new ArbolAVL();
+
     public ArbolAVLJF() {
         initComponents();
     }
@@ -39,6 +42,9 @@ public class ArbolAVLJF extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMInicio = new javax.swing.JMenu();
+        jMConfiguraciones = new javax.swing.JMenu();
+        jMGuardarAVL = new javax.swing.JMenu();
+        jMCargarAVL = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,6 +124,24 @@ public class ArbolAVLJF extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMInicio);
 
+        jMConfiguraciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-engranaje-30.png"))); // NOI18N
+        jMConfiguraciones.setText("Configuraciones");
+
+        jMGuardarAVL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-guardar-30.png"))); // NOI18N
+        jMGuardarAVL.setText("Guardar Arbol AVL");
+        jMGuardarAVL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMGuardarAVLMousePressed(evt);
+            }
+        });
+        jMConfiguraciones.add(jMGuardarAVL);
+
+        jMCargarAVL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-inscripción-30.png"))); // NOI18N
+        jMCargarAVL.setText("Cargar txt al AVL");
+        jMConfiguraciones.add(jMCargarAVL);
+
+        jMenuBar1.add(jMConfiguraciones);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,10 +170,32 @@ public class ArbolAVLJF extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnBuscarRegistroAVLMousePressed
 
     private void jBtnImprimirAVLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnImprimirAVLMousePressed
-        ImprimirAVLJF arbAVL= new ImprimirAVLJF();
+        ImprimirAVLJF arbAVL = new ImprimirAVLJF();
         arbAVL.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnImprimirAVLMousePressed
+
+    private void jMGuardarAVLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMGuardarAVLMousePressed
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea guardar el arbol en un .txt?", "Confirmar", JOptionPane.YES_NO_OPTION);
+
+        if (!arbolAVL.estaVacio()) {
+            if (opcion == JOptionPane.YES_OPTION) {
+                Conexion con = new Conexion();
+                String rutaArchivo = "C:/Users/deyvi/Downloads/arbolAVL.txt"; //Ruta del archivo a guardar
+                boolean conf = con.guardarAVLTXT(arbolAVL.raizAVL, rutaArchivo);
+
+                if (conf) {
+                    JOptionPane.showMessageDialog(null, "Arbol Guardado Correctamente");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+                }
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "El Arbol esta vacio");
+        }
+
+    }//GEN-LAST:event_jMGuardarAVLMousePressed
 
     /**
      * @param args the command line arguments
@@ -191,6 +237,9 @@ public class ArbolAVLJF extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMCargarAVL;
+    private javax.swing.JMenu jMConfiguraciones;
+    private javax.swing.JMenu jMGuardarAVL;
     private javax.swing.JMenu jMInicio;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;

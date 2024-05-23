@@ -252,6 +252,25 @@ public class ArbolBinarioB {
         }
         return reemplazo;
     }
+    
+    
+    // Método para obtener la representación InOrden del árbol
+    public String obtenerInOrden(NodoArbolBinario r) {
+        StringBuilder sb = new StringBuilder();
+        obtenerRegistrosInOrden(r, sb);
+        return sb.toString();
+    }
+    
+    private void obtenerRegistrosInOrden(NodoArbolBinario r, StringBuilder sb) {
+        if (r != null) {
+            obtenerRegistrosInOrden(r.hijoizq, sb);
+
+            // Agregar el nombre y DPI del nodo al StringBuilder
+            sb.append(r.nombre).append("").append(r.dpi).append("\n");
+            
+            obtenerRegistrosInOrden(r.hijoder, sb);
+        }
+    }
 }
     
 

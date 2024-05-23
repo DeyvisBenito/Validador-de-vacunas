@@ -26,6 +26,35 @@
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMInicioMousePressed"/>
           </Events>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="jMConfiguraciones">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icons/icons8-engranaje-30.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Configuraciones"/>
+          </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="jMGuardarAVL">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/icons8-guardar-30.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Guardar Arbol AVL"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMGuardarAVLMousePressed"/>
+              </Events>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="jMCargarAVL">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/icons8-inscripci&#xf3;n-30.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cargar txt al AVL"/>
+              </Properties>
+            </Menu>
+          </SubComponents>
+        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
