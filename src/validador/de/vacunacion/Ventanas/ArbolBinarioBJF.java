@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import validador.de.vacunacion.ArbolBinarioB;
 import validador.de.vacunacion.Conexion;
 import validador.de.vacunacion.Graphviz;
+import validador.de.vacunacion.NodoArbolBinario;
 import validador.de.vacunacion.Ventanas.BuscarRegABB;
 import validador.de.vacunacion.Ventanas.ImprimirABBjF;
 
@@ -27,6 +28,7 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
 
     public ArbolBinarioBJF() {
         initComponents();
+        ocultarComponentes();
     }
 
     /**
@@ -46,6 +48,31 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
         btnImprimirR = new javax.swing.JButton();
         jBtnGraphviz = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jBtnAgregar = new javax.swing.JButton();
+        jTfNombre = new javax.swing.JTextField();
+        jTfDPI = new javax.swing.JTextField();
+        jTfCantD = new javax.swing.JTextField();
+        jTfV1 = new javax.swing.JTextField();
+        jTfV2 = new javax.swing.JTextField();
+        jTfV3 = new javax.swing.JTextField();
+        jTfLugarV = new javax.swing.JTextField();
+        jTfDepa = new javax.swing.JTextField();
+        jTfMuni = new javax.swing.JTextField();
+        jLbNombre = new javax.swing.JLabel();
+        jLbDPI = new javax.swing.JLabel();
+        jLbCantD = new javax.swing.JLabel();
+        jLbV1 = new javax.swing.JLabel();
+        jLbV2 = new javax.swing.JLabel();
+        jLbV3 = new javax.swing.JLabel();
+        jLbLugarV = new javax.swing.JLabel();
+        jLbDepa = new javax.swing.JLabel();
+        jLbMuni = new javax.swing.JLabel();
+        jBtnCancel = new javax.swing.JButton();
+        jBtnGuardar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMInicio = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -92,6 +119,66 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-estructura-96.png"))); // NOI18N
 
+        jBtnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-añadir-usuario-masculino-30.png"))); // NOI18N
+        jBtnAgregar.setText("Agregar:");
+        jBtnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnAgregarMousePressed(evt);
+            }
+        });
+
+        jLbNombre.setForeground(new java.awt.Color(0, 0, 0));
+        jLbNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbNombre.setText("Nombre");
+
+        jLbDPI.setForeground(new java.awt.Color(0, 0, 0));
+        jLbDPI.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbDPI.setText("DPI");
+
+        jLbCantD.setForeground(new java.awt.Color(0, 0, 0));
+        jLbCantD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbCantD.setText("Cantidad de Dosis");
+
+        jLbV1.setForeground(new java.awt.Color(0, 0, 0));
+        jLbV1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbV1.setText("Fecha Vacuna 1");
+
+        jLbV2.setForeground(new java.awt.Color(0, 0, 0));
+        jLbV2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbV2.setText("Fecha Vacuna 2");
+
+        jLbV3.setForeground(new java.awt.Color(0, 0, 0));
+        jLbV3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbV3.setText("Fecha Vacuna 3");
+
+        jLbLugarV.setForeground(new java.awt.Color(0, 0, 0));
+        jLbLugarV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbLugarV.setText("Lugar de Vacunacion");
+
+        jLbDepa.setForeground(new java.awt.Color(0, 0, 0));
+        jLbDepa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbDepa.setText("Departamento de Vivienda");
+
+        jLbMuni.setForeground(new java.awt.Color(0, 0, 0));
+        jLbMuni.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbMuni.setText("Municipio de Vivienda");
+
+        jBtnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-eliminar-15.png"))); // NOI18N
+        jBtnCancel.setText("Cancelar");
+        jBtnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnCancelMousePressed(evt);
+            }
+        });
+
+        jBtnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-guardar-15.png"))); // NOI18N
+        jBtnGuardar.setText("Guardar");
+        jBtnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnGuardarMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -105,28 +192,128 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
                         .addGap(130, 130, 130)
                         .addComponent(jbtnBuscarR, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(btnImprimirR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnImprimirR, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)))
                 .addGap(35, 35, 35)
                 .addComponent(jBtnGraphviz, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(445, 445, 445)
-                .addComponent(jLabel2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(435, 435, 435)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(jBtnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(jBtnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jBtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(258, 258, 258)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLbLugarV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(jLbV1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLbNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTfLugarV, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTfV1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTfNombre, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(51, 51, 51)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTfDPI)
+                                    .addComponent(jTfV2)
+                                    .addComponent(jTfDepa)
+                                    .addComponent(jLbDPI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLbV2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLbDepa, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                                .addGap(48, 48, 48)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTfCantD)
+                                    .addComponent(jTfV3)
+                                    .addComponent(jTfMuni)
+                                    .addComponent(jLbCantD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLbV3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLbMuni, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(268, 268, 268)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(313, 313, 313))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbtnBuscarR, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtnGraphviz, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnImprimirR, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(jBtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtnBuscarR, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnGraphviz, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnImprimirR, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(jLabel2)
-                .addContainerGap(130, Short.MAX_VALUE))
+                    .addComponent(jLbNombre)
+                    .addComponent(jLbDPI)
+                    .addComponent(jLbCantD))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTfDPI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTfCantD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLbV1)
+                    .addComponent(jLbV2)
+                    .addComponent(jLbV3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTfV1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTfV2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTfV3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLbLugarV)
+                    .addComponent(jLbDepa)
+                    .addComponent(jLbMuni))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTfLugarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTfDepa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTfMuni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jBtnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jBtnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel5)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
@@ -189,7 +376,9 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,6 +386,8 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
 
     private void jMInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMInicioMousePressed
         this.dispose();
+        ocultarComponentes();
+        vaciarComponentes();
     }//GEN-LAST:event_jMInicioMousePressed
 
     private void jbtnBuscarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBuscarRActionPerformed
@@ -268,6 +459,47 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
         crgarP.setVisible(true);
     }//GEN-LAST:event_jMPersonalizadoMousePressed
 
+    private void jBtnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnAgregarMousePressed
+        mostrarComponentes();
+    }//GEN-LAST:event_jBtnAgregarMousePressed
+
+    private void jBtnCancelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnCancelMousePressed
+        int opcion = JOptionPane.showConfirmDialog(null, "Desea cancelar?", "Confirmar", JOptionPane.YES_NO_OPTION);
+        if (opcion == JOptionPane.YES_OPTION) {
+            ocultarComponentes();
+            vaciarComponentes();
+        }
+    }//GEN-LAST:event_jBtnCancelMousePressed
+
+    private void jBtnGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnGuardarMousePressed
+        try {
+            long dpi = Long.parseLong(jTfDPI.getText());
+            arbolB.AgregarNodo(jTfNombre.getText(), dpi);
+
+            NodoArbolBinario editar = arbolB.buscarNodo(dpi);
+
+            try {
+                editar.cantDosis = Integer.parseInt(jTfCantD.getText());
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Cantidad de dosis invalida");
+                ocultarComponentes();
+                vaciarComponentes();
+            }
+
+            editar.fecV1 = jTfV1.getText();
+            editar.fecV2 = jTfV2.getText();
+            editar.fecV3 = jTfV3.getText();
+            editar.lugarV = jTfLugarV.getText();
+            editar.depa = jTfDepa.getText();
+            editar.muni = jTfMuni.getText();
+            JOptionPane.showMessageDialog(null, "Registro agregado");
+            ocultarComponentes();
+            vaciarComponentes();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "DPI invalido");
+        }
+    }//GEN-LAST:event_jBtnGuardarMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -305,9 +537,25 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImprimirR;
+    private javax.swing.JButton jBtnAgregar;
+    private javax.swing.JButton jBtnCancel;
     private javax.swing.JButton jBtnGraphviz;
+    private javax.swing.JButton jBtnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLbCantD;
+    private javax.swing.JLabel jLbDPI;
+    private javax.swing.JLabel jLbDepa;
+    private javax.swing.JLabel jLbLugarV;
+    private javax.swing.JLabel jLbMuni;
+    private javax.swing.JLabel jLbNombre;
+    private javax.swing.JLabel jLbV1;
+    private javax.swing.JLabel jLbV2;
+    private javax.swing.JLabel jLbV3;
     private javax.swing.JMenu jMCargarABB;
     private javax.swing.JMenu jMGuardarTXT;
     private javax.swing.JMenu jMInicio;
@@ -317,6 +565,76 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JTextField jTfCantD;
+    private javax.swing.JTextField jTfDPI;
+    private javax.swing.JTextField jTfDepa;
+    private javax.swing.JTextField jTfLugarV;
+    private javax.swing.JTextField jTfMuni;
+    private javax.swing.JTextField jTfNombre;
+    private javax.swing.JTextField jTfV1;
+    private javax.swing.JTextField jTfV2;
+    private javax.swing.JTextField jTfV3;
     private javax.swing.JButton jbtnBuscarR;
     // End of variables declaration//GEN-END:variables
+
+    private void ocultarComponentes() {
+        jLbNombre.setVisible(false);
+        jTfNombre.setVisible(false);
+        jLbDPI.setVisible(false);
+        jTfDPI.setVisible(false);
+        jLbCantD.setVisible(false);
+        jTfCantD.setVisible(false);
+        jLbV1.setVisible(false);
+        jTfV1.setVisible(false);
+        jLbV2.setVisible(false);
+        jTfV2.setVisible(false);
+        jLbV3.setVisible(false);
+        jTfV3.setVisible(false);
+        jLbLugarV.setVisible(false);
+        jTfLugarV.setVisible(false);
+        jLbDepa.setVisible(false);
+        jTfDepa.setVisible(false);
+        jLbMuni.setVisible(false);
+        jTfMuni.setVisible(false);
+
+        jBtnGuardar.setVisible(false);
+        jBtnCancel.setVisible(false);
+    }
+
+    private void mostrarComponentes() {
+        jLbNombre.setVisible(true);
+        jTfNombre.setVisible(true);
+        jLbDPI.setVisible(true);
+        jTfDPI.setVisible(true);
+        jLbCantD.setVisible(true);
+        jTfCantD.setVisible(true);
+        jLbV1.setVisible(true);
+        jTfV1.setVisible(true);
+        jLbV2.setVisible(true);
+        jTfV2.setVisible(true);
+        jLbV3.setVisible(true);
+        jTfV3.setVisible(true);
+        jLbLugarV.setVisible(true);
+        jTfLugarV.setVisible(true);
+        jLbDepa.setVisible(true);
+        jTfDepa.setVisible(true);
+        jLbMuni.setVisible(true);
+        jTfMuni.setVisible(true);
+
+        jBtnGuardar.setVisible(true);
+        jBtnCancel.setVisible(true);
+    }
+
+    private void vaciarComponentes() {
+        jTfNombre.setText("");
+        jTfDPI.setText("");
+        jTfCantD.setText("");
+        jTfV1.setText("");
+        jTfV2.setText("");
+        jTfV3.setText("");
+        jTfLugarV.setText("");
+        jTfDepa.setText("");
+        jTfMuni.setText("");
+    }
+
 }

@@ -100,10 +100,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -128,22 +125,65 @@
                           <EmptySpace min="-2" pref="423" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jBtnAgregar" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jLbLugarV" pref="250" max="32767" attributes="0"/>
+                                      <Component id="jLbV1" max="32767" attributes="0"/>
+                                      <Component id="jLbNombre" max="32767" attributes="0"/>
+                                      <Component id="jTfLugarV" max="32767" attributes="0"/>
+                                      <Component id="jTfV1" max="32767" attributes="0"/>
+                                      <Component id="jTfNombre" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jTfDPI" max="32767" attributes="0"/>
+                                      <Component id="jTfV2" max="32767" attributes="0"/>
+                                      <Component id="jTfDepa" max="32767" attributes="0"/>
+                                      <Component id="jLbDPI" max="32767" attributes="0"/>
+                                      <Component id="jLbV2" max="32767" attributes="0"/>
+                                      <Component id="jLbDepa" pref="250" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jTfCantD" max="32767" attributes="0"/>
+                                      <Component id="jTfV3" max="32767" attributes="0"/>
+                                      <Component id="jTfMuni" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLbCantD" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLbV3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLbMuni" alignment="0" pref="250" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="93" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jBtnAgregar" min="-2" pref="91" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="jbtnBuscarRegistroAVL" min="-2" pref="140" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                          <Component id="jBtnImprimirAVL" min="-2" pref="366" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                          <Component id="jBtnGraphviz" min="-2" pref="140" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="jbtnBuscarRegistroAVL" min="-2" pref="140" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="jBtnImprimirAVL" min="-2" pref="366" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                  <Component id="jBtnGraphviz" min="-2" pref="140" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" pref="195" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabel4" min="-2" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                  <Component id="jBtnCancel" min="-2" pref="141" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="jBtnGuardar" min="-2" pref="141" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -162,7 +202,66 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jBtnAgregar" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace pref="264" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabel3" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLbNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLbDPI" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLbCantD" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTfNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTfDPI" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTfCantD" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLbV1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLbV2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLbV3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTfV1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTfV2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTfV3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLbLugarV" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLbDepa" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLbMuni" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTfLugarV" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTfDepa" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTfMuni" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jBtnGuardar" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="jBtnCancel" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="13" pref="23" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" pref="15" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -216,8 +315,136 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBtnAgregar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icons/icons8-a&#xf1;adir-usuario-masculino-30.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Agregar:"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnAgregarMousePressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTfNombre">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTfDPI">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTfCantD">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTfV1">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTfV2">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTfV3">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTfLugarV">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTfDepa">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTfMuni">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLbNombre">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Nombre"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLbDPI">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="DPI"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLbCantD">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Cantidad de Dosis"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLbV1">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Fecha Vacuna 1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLbV2">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Fecha Vacuna 2"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLbV3">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Fecha Vacuna 3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLbLugarV">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Lugar de Vacunacion"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLbDepa">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Departamento de Vivienda"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLbMuni">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Municipio de Vivienda"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBtnGuardar">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icons/icons8-guardar-15.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Guardar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBtnCancel">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icons/icons8-eliminar-15.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnCancelMousePressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
         </Component>
       </SubComponents>
     </Container>

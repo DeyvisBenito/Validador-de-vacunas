@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import validador.de.vacunacion.ArbolAVL;
 import validador.de.vacunacion.Conexion;
 import validador.de.vacunacion.Graphviz;
+import validador.de.vacunacion.NodoArbolAVL;
 import validador.de.vacunacion.Ventanas.BuscarRegistroAVL;
 
 /**
@@ -24,6 +25,7 @@ public class ArbolAVLJF extends javax.swing.JFrame {
 
     public ArbolAVLJF() {
         initComponents();
+        ocultarComponentes();
     }
 
     /**
@@ -42,6 +44,28 @@ public class ArbolAVLJF extends javax.swing.JFrame {
         jBtnGraphviz = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jBtnAgregar = new javax.swing.JButton();
+        jTfNombre = new javax.swing.JTextField();
+        jTfDPI = new javax.swing.JTextField();
+        jTfCantD = new javax.swing.JTextField();
+        jTfV1 = new javax.swing.JTextField();
+        jTfV2 = new javax.swing.JTextField();
+        jTfV3 = new javax.swing.JTextField();
+        jTfLugarV = new javax.swing.JTextField();
+        jTfDepa = new javax.swing.JTextField();
+        jTfMuni = new javax.swing.JTextField();
+        jLbNombre = new javax.swing.JLabel();
+        jLbDPI = new javax.swing.JLabel();
+        jLbCantD = new javax.swing.JLabel();
+        jLbV1 = new javax.swing.JLabel();
+        jLbV2 = new javax.swing.JLabel();
+        jLbV3 = new javax.swing.JLabel();
+        jLbLugarV = new javax.swing.JLabel();
+        jLbDepa = new javax.swing.JLabel();
+        jLbMuni = new javax.swing.JLabel();
+        jBtnGuardar = new javax.swing.JButton();
+        jBtnCancel = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMInicio = new javax.swing.JMenu();
         jMConfiguraciones = new javax.swing.JMenu();
@@ -82,7 +106,60 @@ public class ArbolAVLJF extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-estructura-96.png"))); // NOI18N
 
+        jBtnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-añadir-usuario-masculino-30.png"))); // NOI18N
         jBtnAgregar.setText("Agregar:");
+        jBtnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnAgregarMousePressed(evt);
+            }
+        });
+
+        jLbNombre.setForeground(new java.awt.Color(0, 0, 0));
+        jLbNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbNombre.setText("Nombre");
+
+        jLbDPI.setForeground(new java.awt.Color(0, 0, 0));
+        jLbDPI.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbDPI.setText("DPI");
+
+        jLbCantD.setForeground(new java.awt.Color(0, 0, 0));
+        jLbCantD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbCantD.setText("Cantidad de Dosis");
+
+        jLbV1.setForeground(new java.awt.Color(0, 0, 0));
+        jLbV1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbV1.setText("Fecha Vacuna 1");
+
+        jLbV2.setForeground(new java.awt.Color(0, 0, 0));
+        jLbV2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbV2.setText("Fecha Vacuna 2");
+
+        jLbV3.setForeground(new java.awt.Color(0, 0, 0));
+        jLbV3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbV3.setText("Fecha Vacuna 3");
+
+        jLbLugarV.setForeground(new java.awt.Color(0, 0, 0));
+        jLbLugarV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbLugarV.setText("Lugar de Vacunacion");
+
+        jLbDepa.setForeground(new java.awt.Color(0, 0, 0));
+        jLbDepa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbDepa.setText("Departamento de Vivienda");
+
+        jLbMuni.setForeground(new java.awt.Color(0, 0, 0));
+        jLbMuni.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbMuni.setText("Municipio de Vivienda");
+
+        jBtnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-guardar-15.png"))); // NOI18N
+        jBtnGuardar.setText("Guardar");
+
+        jBtnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-eliminar-15.png"))); // NOI18N
+        jBtnCancel.setText("Cancelar");
+        jBtnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnCancelMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,19 +172,56 @@ public class ArbolAVLJF extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(423, 423, 423)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jBtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLbLugarV, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(jLbV1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLbNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTfLugarV)
+                                    .addComponent(jTfV1)
+                                    .addComponent(jTfNombre))
+                                .addGap(59, 59, 59)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTfDPI)
+                                    .addComponent(jTfV2)
+                                    .addComponent(jTfDepa)
+                                    .addComponent(jLbDPI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLbV2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLbDepa, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTfCantD)
+                                    .addComponent(jTfV3)
+                                    .addComponent(jTfMuni)
+                                    .addComponent(jLbCantD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLbV3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLbMuni, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))))))
+                .addGap(49, 49, 49))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(93, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jbtnBuscarRegistroAVL, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addComponent(jBtnImprimirAVL, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)
-                        .addComponent(jBtnGraphviz, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jbtnBuscarRegistroAVL, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(jBtnImprimirAVL, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(jBtnGraphviz, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(102, 102, 102))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115)
+                .addComponent(jBtnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(jBtnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,7 +237,53 @@ public class ArbolAVLJF extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLbNombre)
+                            .addComponent(jLbDPI)
+                            .addComponent(jLbCantD))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTfDPI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTfCantD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLbV1)
+                            .addComponent(jLbV2)
+                            .addComponent(jLbV3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTfV1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTfV2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTfV3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLbLugarV)
+                            .addComponent(jLbDepa)
+                            .addComponent(jLbMuni))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTfLugarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTfDepa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTfMuni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jBtnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jBtnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(13, 23, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
 
         jMenuBar1.setBackground(new java.awt.Color(153, 255, 153));
@@ -181,9 +341,7 @@ public class ArbolAVLJF extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -191,6 +349,8 @@ public class ArbolAVLJF extends javax.swing.JFrame {
 
     private void jMInicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMInicioMousePressed
         this.dispose();
+        ocultarComponentes();
+        vaciarComponentes();
     }//GEN-LAST:event_jMInicioMousePressed
 
     private void jbtnBuscarRegistroAVLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnBuscarRegistroAVLMousePressed
@@ -205,7 +365,6 @@ public class ArbolAVLJF extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnImprimirAVLMousePressed
 
     private void jMGuardarAVLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMGuardarAVLMousePressed
-        
 
         if (!arbolAVL.estaVacio()) {
             int opcion = JOptionPane.showConfirmDialog(null, "¿Desea guardar el arbol en un .txt?", "Confirmar", JOptionPane.YES_NO_OPTION);
@@ -228,31 +387,44 @@ public class ArbolAVLJF extends javax.swing.JFrame {
     }//GEN-LAST:event_jMGuardarAVLMousePressed
 
     private void jMCargarAVLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMCargarAVLMousePressed
-        CargarARCAVLJF cAVL= new CargarARCAVLJF();
+        CargarARCAVLJF cAVL = new CargarARCAVLJF();
         cAVL.setVisible(true);
     }//GEN-LAST:event_jMCargarAVLMousePressed
 
     private void jBtnGraphvizMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnGraphvizMousePressed
-        
-            Graphviz graphviz = new Graphviz();
-            String rutaArchivoDOT = "arbolAVL.dot";
-            String rutaArchivoPNG = "arbolAVL.png";
-            graphviz.generarArchivoDOT(arbolAVL.raizAVL, rutaArchivoDOT);
-            boolean resp = graphviz.generarImagenDesdeDOT(rutaArchivoDOT, rutaArchivoPNG);
 
-            if (resp) {
-                GraphvizAVL gAVL=new GraphvizAVL(rutaArchivoPNG);
-                gAVL.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
-            }
-       
+        Graphviz graphviz = new Graphviz();
+        String rutaArchivoDOT = "arbolAVL.dot";
+        String rutaArchivoPNG = "arbolAVL.png";
+        graphviz.generarArchivoDOT(arbolAVL.raizAVL, rutaArchivoDOT);
+        boolean resp = graphviz.generarImagenDesdeDOT(rutaArchivoDOT, rutaArchivoPNG);
+
+        if (resp) {
+            GraphvizAVL gAVL = new GraphvizAVL(rutaArchivoPNG);
+            gAVL.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+        }
+
     }//GEN-LAST:event_jBtnGraphvizMousePressed
 
     private void jMPersonalizadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMPersonalizadoMousePressed
-        CargarPersonalizadoAVL cargarAVLP=new CargarPersonalizadoAVL();
+        CargarPersonalizadoAVL cargarAVLP = new CargarPersonalizadoAVL();
         cargarAVLP.setVisible(true);
     }//GEN-LAST:event_jMPersonalizadoMousePressed
+
+    private void jBtnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnAgregarMousePressed
+        mostrarComponentes();
+    }//GEN-LAST:event_jBtnAgregarMousePressed
+
+    private void jBtnCancelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnCancelMousePressed
+        int opcion = JOptionPane.showConfirmDialog(null, "Desea cancelar?", "Confirmar", JOptionPane.YES_NO_OPTION);
+        if (opcion == JOptionPane.YES_OPTION) {
+            ocultarComponentes();
+            vaciarComponentes();
+        }
+
+    }//GEN-LAST:event_jBtnCancelMousePressed
 
     /**
      * @param args the command line arguments
@@ -291,10 +463,23 @@ public class ArbolAVLJF extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnAgregar;
+    private javax.swing.JButton jBtnCancel;
     private javax.swing.JButton jBtnGraphviz;
+    private javax.swing.JButton jBtnGuardar;
     private javax.swing.JButton jBtnImprimirAVL;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLbCantD;
+    private javax.swing.JLabel jLbDPI;
+    private javax.swing.JLabel jLbDepa;
+    private javax.swing.JLabel jLbLugarV;
+    private javax.swing.JLabel jLbMuni;
+    private javax.swing.JLabel jLbNombre;
+    private javax.swing.JLabel jLbV1;
+    private javax.swing.JLabel jLbV2;
+    private javax.swing.JLabel jLbV3;
     private javax.swing.JMenu jMCargarAVL;
     private javax.swing.JMenu jMConfiguraciones;
     private javax.swing.JMenu jMGuardarAVL;
@@ -302,6 +487,75 @@ public class ArbolAVLJF extends javax.swing.JFrame {
     private javax.swing.JMenu jMPersonalizado;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTfCantD;
+    private javax.swing.JTextField jTfDPI;
+    private javax.swing.JTextField jTfDepa;
+    private javax.swing.JTextField jTfLugarV;
+    private javax.swing.JTextField jTfMuni;
+    private javax.swing.JTextField jTfNombre;
+    private javax.swing.JTextField jTfV1;
+    private javax.swing.JTextField jTfV2;
+    private javax.swing.JTextField jTfV3;
     private javax.swing.JButton jbtnBuscarRegistroAVL;
     // End of variables declaration//GEN-END:variables
+
+    private void ocultarComponentes() {
+        jLbNombre.setVisible(false);
+        jTfNombre.setVisible(false);
+        jLbDPI.setVisible(false);
+        jTfDPI.setVisible(false);
+        jLbCantD.setVisible(false);
+        jTfCantD.setVisible(false);
+        jLbV1.setVisible(false);
+        jTfV1.setVisible(false);
+        jLbV2.setVisible(false);
+        jTfV2.setVisible(false);
+        jLbV3.setVisible(false);
+        jTfV3.setVisible(false);
+        jLbLugarV.setVisible(false);
+        jTfLugarV.setVisible(false);
+        jLbDepa.setVisible(false);
+        jTfDepa.setVisible(false);
+        jLbMuni.setVisible(false);
+        jTfMuni.setVisible(false);
+
+        jBtnGuardar.setVisible(false);
+        jBtnCancel.setVisible(false);
+    }
+
+    private void mostrarComponentes() {
+        jLbNombre.setVisible(true);
+        jTfNombre.setVisible(true);
+        jLbDPI.setVisible(true);
+        jTfDPI.setVisible(true);
+        jLbCantD.setVisible(true);
+        jTfCantD.setVisible(true);
+        jLbV1.setVisible(true);
+        jTfV1.setVisible(true);
+        jLbV2.setVisible(true);
+        jTfV2.setVisible(true);
+        jLbV3.setVisible(true);
+        jTfV3.setVisible(true);
+        jLbLugarV.setVisible(true);
+        jTfLugarV.setVisible(true);
+        jLbDepa.setVisible(true);
+        jTfDepa.setVisible(true);
+        jLbMuni.setVisible(true);
+        jTfMuni.setVisible(true);
+
+        jBtnGuardar.setVisible(true);
+        jBtnCancel.setVisible(true);
+    }
+
+    private void vaciarComponentes() {
+        jTfNombre.setText("");
+        jTfDPI.setText("");
+        jTfCantD.setText("");
+        jTfV1.setText("");
+        jTfV2.setText("");
+        jTfV3.setText("");
+        jTfLugarV.setText("");
+        jTfDepa.setText("");
+        jTfMuni.setText("");
+    }
 }
