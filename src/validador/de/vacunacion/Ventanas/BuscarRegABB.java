@@ -423,6 +423,8 @@ public class BuscarRegABB extends javax.swing.JFrame {
                 if(conf){
                     JOptionPane.showMessageDialog(null, "Eliminacion correcta");
                     ocultarComponentes();
+                    ArbolBinarioBJF arbolAABBV= new ArbolBinarioBJF();
+                    arbolAABBV.setVisible(true);
                     this.dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "No se pudo eliminar");

@@ -1,0 +1,13 @@
+digraph G {
+  3 [label="3\n0linda Lejá Guajan	"];
+  4 [label="4\n0josé Luis Cano Batres	"];
+  5 [label="5\n0linda Lejá Guajan	"];
+  6 [label="6\n0Brenda Mareli Esteban Porras	"];
+  7 [label="7\n1Arnulfo López Velásquez	"];
+  8 [label="8\n1Arnulfo López Velásquez	"];
+  3 -> 4;
+  4 -> 5;
+  5 -> 6;
+  6 -> 7;
+  7 -> 8;
+}

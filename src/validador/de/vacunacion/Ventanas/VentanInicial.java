@@ -49,7 +49,9 @@ public class VentanInicial extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jbtnAvlInO = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
         mnCargarArc = new javax.swing.JMenu();
+        jMPersonalizado = new javax.swing.JMenu();
 
         jMenu1.setText("jMenu1");
 
@@ -168,6 +170,9 @@ public class VentanInicial extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-engranaje-30.png"))); // NOI18N
+        jMenu3.setText("Configuraciones");
+
         mnCargarArc.setBackground(new java.awt.Color(255, 255, 255));
         mnCargarArc.setForeground(new java.awt.Color(0, 0, 0));
         mnCargarArc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-inscripción-30.png"))); // NOI18N
@@ -177,7 +182,18 @@ public class VentanInicial extends javax.swing.JFrame {
                 mnCargarArcMousePressed(evt);
             }
         });
-        jMenuBar1.add(mnCargarArc);
+        jMenu3.add(mnCargarArc);
+
+        jMPersonalizado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-multiedición-30.png"))); // NOI18N
+        jMPersonalizado.setText("Cargar Txt Personalizado");
+        jMPersonalizado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMPersonalizadoMousePressed(evt);
+            }
+        });
+        jMenu3.add(jMPersonalizado);
+
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -227,6 +243,11 @@ public class VentanInicial extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbtnAvlInOMousePressed
 
+    private void jMPersonalizadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMPersonalizadoMousePressed
+        CargarPersonalizadoTodo cargar=new CargarPersonalizadoTodo();
+        cargar.setVisible(true);
+    }//GEN-LAST:event_jMPersonalizadoMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -268,8 +289,10 @@ public class VentanInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMPersonalizado;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;

@@ -71,19 +71,19 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                   <Component id="jBtnPreOrden" min="-2" pref="170" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                  <EmptySpace pref="255" max="32767" attributes="0"/>
                   <Component id="jBtnInOrden" min="-2" pref="170" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
                   <Component id="jBtnPostOrden" min="-2" pref="170" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="929" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="325" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="436" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="304" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -92,8 +92,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="37" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jBtnPreOrden" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
@@ -159,13 +160,16 @@
             <Component class="javax.swing.JTable" name="jTBuscados">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="6" rowCount="0">
+                  <Table columnCount="9" rowCount="0">
                     <Column editable="false" title="Nombre" type="java.lang.String"/>
                     <Column editable="false" title="DPI" type="java.lang.Long"/>
                     <Column editable="false" title="Cantidad de Vacunas" type="java.lang.String"/>
                     <Column editable="false" title="Fecha Vacuna 1" type="java.lang.String"/>
                     <Column editable="false" title="Fecha Vacuna 2" type="java.lang.String"/>
                     <Column editable="false" title="Fecha Vacuna 3" type="java.lang.String"/>
+                    <Column editable="false" title="Lugar de Vacunacion" type="java.lang.String"/>
+                    <Column editable="false" title="Departamento Vivienda" type="java.lang.String"/>
+                    <Column editable="false" title="Municipio Vivienda" type="java.lang.String"/>
                   </Table>
                 </Property>
               </Properties>

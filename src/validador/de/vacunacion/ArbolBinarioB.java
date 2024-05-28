@@ -77,7 +77,10 @@ public class ArbolBinarioB {
                 r.cantDosis,
                 r.fecV1,
                 r.fecV2,
-                r.fecV3
+                r.fecV3,
+                r.lugarV,
+                r.depa,
+                r.muni
             });
             inOrden(r.hijoder, modelo);
         }
@@ -94,7 +97,10 @@ public class ArbolBinarioB {
                 r.cantDosis,
                 r.fecV1,
                 r.fecV2,
-                r.fecV3
+                r.fecV3,
+                r.lugarV,
+                r.depa,
+                r.muni
             });
 
             PreOrden(r.hijoizq, modelo);
@@ -116,7 +122,10 @@ public class ArbolBinarioB {
                 r.cantDosis,
                 r.fecV1,
                 r.fecV2,
-                r.fecV3
+                r.fecV3,
+                r.lugarV,
+                r.depa,
+                r.muni
             });
         }
     }
@@ -265,8 +274,10 @@ public class ArbolBinarioB {
         if (r != null) {
             obtenerRegistrosInOrden(r.hijoizq, sb);
 
-            // Agregar el nombre y DPI del nodo al StringBuilder
-            sb.append(r.nombre).append("").append(r.dpi).append("\n");
+            // Agregar datos del nodo al StringBuilder
+            sb.append(r.nombre).append("|").append(r.dpi).append("|").append(r.cantDosis).append("|")
+                    .append(r.fecV1).append("|").append(r.fecV2).append("|").append(r.fecV3).append("|")
+                    .append(r.lugarV).append("|").append(r.depa).append("|").append(r.muni).append("\n");
             
             obtenerRegistrosInOrden(r.hijoder, sb);
         }

@@ -7,6 +7,7 @@ package validador.de.vacunacion.Ventanas;
 import javax.swing.JOptionPane;
 import validador.de.vacunacion.ArbolAVL;
 import validador.de.vacunacion.Conexion;
+import validador.de.vacunacion.Graphviz;
 import validador.de.vacunacion.Ventanas.BuscarRegistroAVL;
 
 /**
@@ -38,13 +39,15 @@ public class ArbolAVLJF extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jbtnBuscarRegistroAVL = new javax.swing.JButton();
         jBtnImprimirAVL = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jBtnGraphviz = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jBtnAgregar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMInicio = new javax.swing.JMenu();
         jMConfiguraciones = new javax.swing.JMenu();
         jMGuardarAVL = new javax.swing.JMenu();
         jMCargarAVL = new javax.swing.JMenu();
+        jMPersonalizado = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,31 +73,41 @@ public class ArbolAVLJF extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Imprimir grapviz");
+        jBtnGraphviz.setText("Imprimir Graphviz");
+        jBtnGraphviz.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnGraphvizMousePressed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-estructura-96.png"))); // NOI18N
+
+        jBtnAgregar.setText("Agregar:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(93, Short.MAX_VALUE)
-                .addComponent(jbtnBuscarRegistroAVL, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(jBtnImprimirAVL, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(344, 344, 344)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(424, 424, 424)
+                        .addGap(423, 423, 423)
                         .addComponent(jLabel2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(93, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jbtnBuscarRegistroAVL, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(jBtnImprimirAVL, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(jBtnGraphviz, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(102, 102, 102))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,12 +116,14 @@ public class ArbolAVLJF extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(jBtnGraphviz, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                     .addComponent(jbtnBuscarRegistroAVL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBtnImprimirAVL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(264, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(153, 255, 153));
@@ -138,7 +153,21 @@ public class ArbolAVLJF extends javax.swing.JFrame {
 
         jMCargarAVL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-inscripción-30.png"))); // NOI18N
         jMCargarAVL.setText("Cargar txt al AVL");
+        jMCargarAVL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMCargarAVLMousePressed(evt);
+            }
+        });
         jMConfiguraciones.add(jMCargarAVL);
+
+        jMPersonalizado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-multiedición-30.png"))); // NOI18N
+        jMPersonalizado.setText("Cargar Txt Personalizado");
+        jMPersonalizado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMPersonalizadoMousePressed(evt);
+            }
+        });
+        jMConfiguraciones.add(jMPersonalizado);
 
         jMenuBar1.add(jMConfiguraciones);
 
@@ -152,7 +181,7 @@ public class ArbolAVLJF extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -176,9 +205,10 @@ public class ArbolAVLJF extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnImprimirAVLMousePressed
 
     private void jMGuardarAVLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMGuardarAVLMousePressed
-        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea guardar el arbol en un .txt?", "Confirmar", JOptionPane.YES_NO_OPTION);
+        
 
         if (!arbolAVL.estaVacio()) {
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Desea guardar el arbol en un .txt?", "Confirmar", JOptionPane.YES_NO_OPTION);
             if (opcion == JOptionPane.YES_OPTION) {
                 Conexion con = new Conexion();
                 String rutaArchivo = "C:/Users/deyvi/Downloads/arbolAVL.txt"; //Ruta del archivo a guardar
@@ -196,6 +226,33 @@ public class ArbolAVLJF extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jMGuardarAVLMousePressed
+
+    private void jMCargarAVLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMCargarAVLMousePressed
+        CargarARCAVLJF cAVL= new CargarARCAVLJF();
+        cAVL.setVisible(true);
+    }//GEN-LAST:event_jMCargarAVLMousePressed
+
+    private void jBtnGraphvizMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnGraphvizMousePressed
+        
+            Graphviz graphviz = new Graphviz();
+            String rutaArchivoDOT = "arbolAVL.dot";
+            String rutaArchivoPNG = "arbolAVL.png";
+            graphviz.generarArchivoDOT(arbolAVL.raizAVL, rutaArchivoDOT);
+            boolean resp = graphviz.generarImagenDesdeDOT(rutaArchivoDOT, rutaArchivoPNG);
+
+            if (resp) {
+                GraphvizAVL gAVL=new GraphvizAVL(rutaArchivoPNG);
+                gAVL.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+            }
+       
+    }//GEN-LAST:event_jBtnGraphvizMousePressed
+
+    private void jMPersonalizadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMPersonalizadoMousePressed
+        CargarPersonalizadoAVL cargarAVLP=new CargarPersonalizadoAVL();
+        cargarAVLP.setVisible(true);
+    }//GEN-LAST:event_jMPersonalizadoMousePressed
 
     /**
      * @param args the command line arguments
@@ -233,14 +290,16 @@ public class ArbolAVLJF extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnAgregar;
+    private javax.swing.JButton jBtnGraphviz;
     private javax.swing.JButton jBtnImprimirAVL;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMCargarAVL;
     private javax.swing.JMenu jMConfiguraciones;
     private javax.swing.JMenu jMGuardarAVL;
     private javax.swing.JMenu jMInicio;
+    private javax.swing.JMenu jMPersonalizado;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbtnBuscarRegistroAVL;

@@ -80,14 +80,14 @@ public class ImprimirAVLJF extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "DPI", "Cantidad de Vacunas", "Fecha Vacuna 1", "Fecha Vacuna 2", "Fecha Vacuna 3"
+                "Nombre", "DPI", "Cantidad de Vacunas", "Fecha Vacuna 1", "Fecha Vacuna 2", "Fecha Vacuna 3", "Lugar de Vacunacion", "Departamento Vivienda", "Municipio Vivienda"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -107,25 +107,26 @@ public class ImprimirAVLJF extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(jBtnPreOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(139, 139, 139)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
                 .addComponent(jBtnInOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(242, 242, 242)
                 .addComponent(jBtnPostOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(98, 98, 98))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(325, 325, 325)
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(436, 436, 436)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBtnPreOrden, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -168,7 +169,7 @@ public class ImprimirAVLJF extends javax.swing.JFrame {
     private void jBtnPreOrdenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnPreOrdenMousePressed
         if(!arbolAVL.estaVacio()){
             limpiarTabla();
-            DefaultTableModel modelo= new DefaultTableModel(new String[]{"Nombre","DPI","Cantidad de vacunas", "Fecha vacuna 1", "Fecha vacuna 2","Fecha vacuna 3"}, 0);
+            DefaultTableModel modelo= new DefaultTableModel(new String[]{"Nombre","DPI","Cantidad de vacunas", "Fecha vacuna 1", "Fecha vacuna 2","Fecha vacuna 3","Lugar de Vacunacion","Departamento Vivienda","Municipio Vivienda"}, 0);
             jTBuscados.setModel(modelo);
             
             arbolAVL.PreOrden(arbolAVL.raizAVL, modelo);
@@ -187,7 +188,7 @@ public class ImprimirAVLJF extends javax.swing.JFrame {
     private void jBtnInOrdenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnInOrdenMousePressed
         if(!arbolAVL.estaVacio()){
             limpiarTabla();
-            DefaultTableModel modelo= new DefaultTableModel(new String[]{"Nombre","DPI","Cantidad de vacunas", "Fecha vacuna 1", "Fecha vacuna 2","Fecha vacuna 3"}, 0);
+            DefaultTableModel modelo= new DefaultTableModel(new String[]{"Nombre","DPI","Cantidad de vacunas", "Fecha vacuna 1", "Fecha vacuna 2","Fecha vacuna 3","Lugar de Vacunacion","Departamento Vivienda","Municipio Vivienda"}, 0);
             jTBuscados.setModel(modelo);
             
             arbolAVL.inOrden(arbolAVL.raizAVL, modelo);
@@ -200,7 +201,7 @@ public class ImprimirAVLJF extends javax.swing.JFrame {
     private void jBtnPostOrdenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnPostOrdenMousePressed
         if(!arbolAVL.estaVacio()){
             limpiarTabla();
-            DefaultTableModel modelo= new DefaultTableModel(new String[]{"Nombre","DPI","Cantidad de vacunas", "Fecha vacuna 1", "Fecha vacuna 2","Fecha vacuna 3"}, 0);
+            DefaultTableModel modelo= new DefaultTableModel(new String[]{"Nombre","DPI","Cantidad de vacunas", "Fecha vacuna 1", "Fecha vacuna 2","Fecha vacuna 3","Lugar de Vacunacion","Departamento Vivienda","Municipio Vivienda"}, 0);
             jTBuscados.setModel(modelo);
             
             arbolAVL.PostOrden(arbolAVL.raizAVL, modelo);

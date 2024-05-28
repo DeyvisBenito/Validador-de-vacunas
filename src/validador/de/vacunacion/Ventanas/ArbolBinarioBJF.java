@@ -7,6 +7,7 @@ package validador.de.vacunacion.Ventanas;
 import javax.swing.JOptionPane;
 import validador.de.vacunacion.ArbolBinarioB;
 import validador.de.vacunacion.Conexion;
+import validador.de.vacunacion.Graphviz;
 import validador.de.vacunacion.Ventanas.BuscarRegABB;
 import validador.de.vacunacion.Ventanas.ImprimirABBjF;
 
@@ -22,7 +23,7 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
     BuscarRegABB bcrR = new BuscarRegABB();
     ImprimirABBjF impR = new ImprimirABBjF();
     ArbolBinarioB arbolB = new ArbolBinarioB();
-    CargarARCABBJF txtABB=new CargarARCABBJF();
+    CargarARCABBJF txtABB = new CargarARCABBJF();
 
     public ArbolBinarioBJF() {
         initComponents();
@@ -43,13 +44,14 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jbtnBuscarR = new javax.swing.JButton();
         btnImprimirR = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jBtnGraphviz = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMInicio = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMGuardarTXT = new javax.swing.JMenu();
         jMCargarABB = new javax.swing.JMenu();
+        jMPersonalizado = new javax.swing.JMenu();
 
         jMenu1.setText("jMenu1");
 
@@ -81,7 +83,12 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Imprimir grapviz");
+        jBtnGraphviz.setText("Imprimir Graphviz");
+        jBtnGraphviz.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnGraphvizMousePressed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-estructura-96.png"))); // NOI18N
 
@@ -100,8 +107,8 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(btnImprimirR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(35, 35, 35)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addComponent(jBtnGraphviz, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(111, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(445, 445, 445)
                 .addComponent(jLabel2)
@@ -115,7 +122,7 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnBuscarR, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnGraphviz, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnImprimirR, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(jLabel2)
@@ -137,6 +144,11 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-engranaje-30.png"))); // NOI18N
         jMenu2.setText("Configuraciones");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenu2MousePressed(evt);
+            }
+        });
 
         jMGuardarTXT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-guardar-30.png"))); // NOI18N
         jMGuardarTXT.setText("Guardar Arbol BB");
@@ -155,6 +167,15 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMCargarABB);
+
+        jMPersonalizado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-multiedición-30.png"))); // NOI18N
+        jMPersonalizado.setText("Cargar Txt Personalizado");
+        jMPersonalizado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMPersonalizadoMousePressed(evt);
+            }
+        });
+        jMenu2.add(jMPersonalizado);
 
         jMenuBar1.add(jMenu2);
 
@@ -193,8 +214,9 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
     }//GEN-LAST:event_btnImprimirRMousePressed
 
     private void jMGuardarTXTMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMGuardarTXTMousePressed
-        int opcion = JOptionPane.showConfirmDialog(null, "¿Desea guardar el arbol en un .txt?", "Confirmar", JOptionPane.YES_NO_OPTION);
+
         if (!arbolB.estaVacio()) {
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Desea guardar el arbol en un .txt?", "Confirmar", JOptionPane.YES_NO_OPTION);
             if (opcion == JOptionPane.YES_OPTION) {
                 Conexion con = new Conexion();
                 String rutaArchivo = "C:/Users/deyvi/Downloads/arbolBB.txt"; // Especifica la ruta del archivo aquí
@@ -206,7 +228,7 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
                 }
 
-            } 
+            }
         } else {
             JOptionPane.showMessageDialog(null, "El arbol esta vacio");
         }
@@ -217,6 +239,34 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
     private void jMCargarABBMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMCargarABBMousePressed
         txtABB.setVisible(true);
     }//GEN-LAST:event_jMCargarABBMousePressed
+
+    private void jBtnGraphvizMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnGraphvizMousePressed
+        // Guardar el árbol en un archivo DOT y generar la imagen
+
+        Graphviz graphviz = new Graphviz();
+        String rutaArchivoDOT = "arbolBB.dot";
+        String rutaArchivoPNG = "arbolBB.png";
+        graphviz.generarArchivoDOT(arbolB.raiz, rutaArchivoDOT);
+        boolean resp = graphviz.generarImagenDesdeDOT(rutaArchivoDOT, rutaArchivoPNG);
+
+        if (resp) {
+            GraphvizABB gABB = new GraphvizABB(rutaArchivoPNG);
+            gABB.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+        }
+
+
+    }//GEN-LAST:event_jBtnGraphvizMousePressed
+
+    private void jMenu2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2MousePressed
+
+    private void jMPersonalizadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMPersonalizadoMousePressed
+        CargarPersonalizadoABB crgarP = new CargarPersonalizadoABB();
+        crgarP.setVisible(true);
+    }//GEN-LAST:event_jMPersonalizadoMousePressed
 
     /**
      * @param args the command line arguments
@@ -255,12 +305,13 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImprimirR;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jBtnGraphviz;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMCargarABB;
     private javax.swing.JMenu jMGuardarTXT;
     private javax.swing.JMenu jMInicio;
+    private javax.swing.JMenu jMPersonalizado;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

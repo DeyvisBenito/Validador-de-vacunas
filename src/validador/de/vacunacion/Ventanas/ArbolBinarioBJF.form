@@ -48,6 +48,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Configuraciones"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu2MousePressed"/>
+          </Events>
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="jMGuardarTXT">
               <Properties>
@@ -69,6 +72,17 @@
               </Properties>
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMCargarABBMousePressed"/>
+              </Events>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="jMPersonalizado">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/icons8-multiedici&#xf3;n-30.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cargar Txt Personalizado"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMPersonalizadoMousePressed"/>
               </Events>
             </Menu>
           </SubComponents>
@@ -133,8 +147,8 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jButton4" min="-2" pref="127" max="-2" attributes="0"/>
-                  <EmptySpace pref="130" max="32767" attributes="0"/>
+                  <Component id="jBtnGraphviz" min="-2" pref="146" max="-2" attributes="0"/>
+                  <EmptySpace pref="111" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="445" max="-2" attributes="0"/>
@@ -151,7 +165,7 @@
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jbtnBuscarR" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="jButton4" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="jBtnGraphviz" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="btnImprimirR" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -191,10 +205,13 @@
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnImprimirRMousePressed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="jBtnGraphviz">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Imprimir grapviz"/>
+            <Property name="text" type="java.lang.String" value="Imprimir Graphviz"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnGraphvizMousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>

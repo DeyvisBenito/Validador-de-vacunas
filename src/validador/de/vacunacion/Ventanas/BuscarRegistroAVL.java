@@ -405,6 +405,8 @@ public class BuscarRegistroAVL extends javax.swing.JFrame {
                 if(conf){
                     JOptionPane.showMessageDialog(null, "Eliminacion correcta");
                     OcultarComponentes();
+                    ArbolAVLJF arbolAVLV=new ArbolAVLJF();
+                    arbolAVLV.setVisible(true);
                     this.dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "No se pudo eliminar");

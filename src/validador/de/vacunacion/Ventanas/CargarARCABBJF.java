@@ -164,7 +164,7 @@ public class CargarARCABBJF extends javax.swing.JFrame {
         int opcion = JOptionPane.showConfirmDialog(null, "¿Desea cargar todos los registros?", "Confirmación", JOptionPane.YES_NO_OPTION);
 
         if (opcion == JOptionPane.YES_OPTION) {
-            con.cargarTxt(jLbPath.getText(), 0);
+            con.cargarTxtABB(jLbPath.getText());
             jLbPath.setText("");
             this.dispose();
         } else {
@@ -175,7 +175,7 @@ public class CargarARCABBJF extends javax.swing.JFrame {
             }
             try {
                 long cantidad = Long.parseLong(cant.trim());
-                con.cargarTxt(jLbPath.getText(), cantidad, 0);
+                con.cargarTxtABB(jLbPath.getText(), cantidad);
                 jLbPath.setText("");
                 this.dispose();
             } catch (NumberFormatException e) {
