@@ -325,4 +325,41 @@ public class ArbolAVL {
             obtenerRegistrosInOrden(r.hijoDer, sb);
         }
     }
+    
+    
+    public void encriptarAVL(NodoArbolAVL r, int desp){
+        Encrypt encr=new Encrypt();
+        if(r!=null){
+            r.nombre = encr.encriptar(r.nombre, desp);
+            r.dpi =Long.parseLong(encr.encriptar(String.valueOf(r.dpi), desp));
+            r.cantDosis = Integer.parseInt(encr.encriptar(String.valueOf(r.cantDosis), desp));
+            r.fecV1 = encr.encriptar(r.fecV1, desp);
+            r.fecV2 = encr.encriptar(r.fecV2, desp);
+            r.fecV3 = encr.encriptar(r.fecV3, desp);
+            r.lugarV = encr.encriptar(r.lugarV, desp);
+            r.depa = encr.encriptar(r.depa, desp);
+            r.muni = encr.encriptar(r.muni, desp);
+            
+            encriptarAVL(r.hijoIzq, desp);
+            encriptarAVL(r.hijoDer, desp);
+        }
+    }
+    
+    public void desencriptarAVL(NodoArbolAVL r, int desp){
+        Encrypt encr=new Encrypt();
+        if(r!=null){
+            r.nombre = encr.desencriptar(r.nombre, desp);
+            r.dpi =Long.parseLong(encr.desencriptar(String.valueOf(r.dpi), desp));
+            r.cantDosis = Integer.parseInt(encr.desencriptar(String.valueOf(r.cantDosis), desp));
+            r.fecV1 = encr.desencriptar(r.fecV1, desp);
+            r.fecV2 = encr.desencriptar(r.fecV2, desp);
+            r.fecV3 = encr.desencriptar(r.fecV3, desp);
+            r.lugarV = encr.desencriptar(r.lugarV, desp);
+            r.depa = encr.desencriptar(r.depa, desp);
+            r.muni = encr.desencriptar(r.muni, desp);
+            
+            desencriptarAVL(r.hijoIzq, desp);
+            desencriptarAVL(r.hijoDer, desp);
+        }
+    }
 }

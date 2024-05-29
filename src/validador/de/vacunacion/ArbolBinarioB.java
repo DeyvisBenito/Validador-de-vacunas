@@ -282,6 +282,43 @@ public class ArbolBinarioB {
             obtenerRegistrosInOrden(r.hijoder, sb);
         }
     }
+    
+    public void encriptarABB(NodoArbolBinario r, int desp){
+        Encrypt encr=new Encrypt();
+        if(r!=null){
+            r.nombre = encr.encriptar(r.nombre, desp);
+            r.dpi =Long.parseLong(encr.encriptar(String.valueOf(r.dpi), desp));
+            r.cantDosis = Integer.parseInt(encr.encriptar(String.valueOf(r.cantDosis), desp));
+            r.fecV1 = encr.encriptar(r.fecV1, desp);
+            r.fecV2 = encr.encriptar(r.fecV2, desp);
+            r.fecV3 = encr.encriptar(r.fecV3, desp);
+            r.lugarV = encr.encriptar(r.lugarV, desp);
+            r.depa = encr.encriptar(r.depa, desp);
+            r.muni = encr.encriptar(r.muni, desp);
+            
+            encriptarABB(r.hijoizq, desp);
+            encriptarABB(r.hijoder, desp);
+        }
+    }
+    
+    public void desencriptarABB(NodoArbolBinario r, int desp){
+        Encrypt encr=new Encrypt();
+        if(r!=null){
+            r.nombre = encr.desencriptar(r.nombre, desp);
+            r.dpi =Long.parseLong(encr.desencriptar(String.valueOf(r.dpi), desp));
+            r.cantDosis = Integer.parseInt(encr.desencriptar(String.valueOf(r.cantDosis), desp));
+            r.fecV1 = encr.desencriptar(r.fecV1, desp);
+            r.fecV2 = encr.desencriptar(r.fecV2, desp);
+            r.fecV3 = encr.desencriptar(r.fecV3, desp);
+            r.lugarV = encr.desencriptar(r.lugarV, desp);
+            r.depa = encr.desencriptar(r.depa, desp);
+            r.muni = encr.desencriptar(r.muni, desp);
+            
+            desencriptarABB(r.hijoizq, desp);
+            desencriptarABB(r.hijoder, desp);
+        }
+    }
+    
 }
     
 

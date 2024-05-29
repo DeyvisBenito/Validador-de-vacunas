@@ -72,6 +72,9 @@ public class ArbolAVLJF extends javax.swing.JFrame {
         jMGuardarAVL = new javax.swing.JMenu();
         jMCargarAVL = new javax.swing.JMenu();
         jMPersonalizado = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMEncrypt = new javax.swing.JMenu();
+        jMDesencrypt = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -152,6 +155,11 @@ public class ArbolAVLJF extends javax.swing.JFrame {
 
         jBtnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-guardar-15.png"))); // NOI18N
         jBtnGuardar.setText("Guardar");
+        jBtnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnGuardarMousePressed(evt);
+            }
+        });
 
         jBtnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-eliminar-15.png"))); // NOI18N
         jBtnCancel.setText("Cancelar");
@@ -331,6 +339,29 @@ public class ArbolAVLJF extends javax.swing.JFrame {
 
         jMenuBar1.add(jMConfiguraciones);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-contraseña-30.png"))); // NOI18N
+        jMenu1.setText("Encriptacion");
+
+        jMEncrypt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-add-an-authentication-security-protection-isolated-only-white-background-30.png"))); // NOI18N
+        jMEncrypt.setText("Encriptar");
+        jMEncrypt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMEncryptMousePressed(evt);
+            }
+        });
+        jMenu1.add(jMEncrypt);
+
+        jMDesencrypt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cryptography-30.png"))); // NOI18N
+        jMDesencrypt.setText("Desencriptar");
+        jMDesencrypt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMDesencryptMousePressed(evt);
+            }
+        });
+        jMenu1.add(jMDesencrypt);
+
+        jMenuBar1.add(jMenu1);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -426,6 +457,55 @@ public class ArbolAVLJF extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jBtnCancelMousePressed
 
+    private void jMEncryptMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMEncryptMousePressed
+
+        int opcion = JOptionPane.showConfirmDialog(null, "Desea encriptar el arbol?", "Confirmar", JOptionPane.YES_NO_OPTION);
+        if (opcion == JOptionPane.YES_OPTION) {
+            arbolAVL.encriptarAVL(arbolAVL.raizAVL, 3);
+            JOptionPane.showMessageDialog(null, "Arbol encriptado");
+
+        }
+    }//GEN-LAST:event_jMEncryptMousePressed
+
+    private void jMDesencryptMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMDesencryptMousePressed
+
+        int opcion = JOptionPane.showConfirmDialog(null, "Desea desencriptar el arbol?", "Confirmar", JOptionPane.YES_NO_OPTION);
+        if (opcion == JOptionPane.YES_OPTION) {
+            arbolAVL.desencriptarAVL(arbolAVL.raizAVL, 3);
+            JOptionPane.showMessageDialog(null, "Arbol desencriptado");
+
+        }
+    }//GEN-LAST:event_jMDesencryptMousePressed
+
+    private void jBtnGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnGuardarMousePressed
+        try {
+            long dpi = Long.parseLong(jTfDPI.getText());
+            arbolAVL.insertar(jTfNombre.getText(), dpi);
+
+            NodoArbolAVL editar = arbolAVL.buscarNodo(dpi, arbolAVL.raizAVL);
+
+            try {
+                editar.cantDosis = Integer.parseInt(jTfCantD.getText());
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Cantidad de dosis invalida");
+                ocultarComponentes();
+                vaciarComponentes();
+            }
+
+            editar.fecV1 = jTfV1.getText();
+            editar.fecV2 = jTfV2.getText();
+            editar.fecV3 = jTfV3.getText();
+            editar.lugarV = jTfLugarV.getText();
+            editar.depa = jTfDepa.getText();
+            editar.muni = jTfMuni.getText();
+            JOptionPane.showMessageDialog(null, "Registro agregado");
+            ocultarComponentes();
+            vaciarComponentes();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "DPI invalido");
+        }
+    }//GEN-LAST:event_jBtnGuardarMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -482,9 +562,12 @@ public class ArbolAVLJF extends javax.swing.JFrame {
     private javax.swing.JLabel jLbV3;
     private javax.swing.JMenu jMCargarAVL;
     private javax.swing.JMenu jMConfiguraciones;
+    private javax.swing.JMenu jMDesencrypt;
+    private javax.swing.JMenu jMEncrypt;
     private javax.swing.JMenu jMGuardarAVL;
     private javax.swing.JMenu jMInicio;
     private javax.swing.JMenu jMPersonalizado;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTfCantD;
