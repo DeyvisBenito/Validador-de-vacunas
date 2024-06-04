@@ -4,6 +4,7 @@
  */
 package validador.de.vacunacion.Ventanas;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import validador.de.vacunacion.ArbolBinarioB;
 import validador.de.vacunacion.Conexion;
@@ -462,22 +463,14 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
     }//GEN-LAST:event_jMCargarABBMousePressed
 
     private void jBtnGraphvizMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnGraphvizMousePressed
-        // Guardar el árbol en un archivo DOT y generar la imagen
 
-        Graphviz graphviz = new Graphviz();
-        String rutaArchivoDOT = "arbolBB.dot";
-        String rutaArchivoPNG = "arbolBB.png";
-        graphviz.generarArchivoDOT(arbolB.raiz, rutaArchivoDOT);
-        boolean resp = graphviz.generarImagenDesdeDOT(rutaArchivoDOT, rutaArchivoPNG);
+        Graphviz grap = new Graphviz();
+        grap.setArbol(arbolB);
 
-        if (resp) {
-            GraphvizABB gABB = new GraphvizABB(rutaArchivoPNG);
-            gABB.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
-        }
-
-
+        JFrame gABB = new JFrame();
+        gABB.getContentPane().add(grap);
+        gABB.setSize(800, 600);
+        gABB.setVisible(true);
     }//GEN-LAST:event_jBtnGraphvizMousePressed
 
     private void jMenu2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MousePressed

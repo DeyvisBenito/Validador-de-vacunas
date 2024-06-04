@@ -27,7 +27,7 @@ public class ArbolAVL {
 
     //Buscar Nodo en el AVL
     public NodoArbolAVL buscarNodo(long d, NodoArbolAVL r) {
-        if (raizAVL == null) {
+        if (r == null) {
             return null;
         } else if (r.dpi == d) {
             return r;
@@ -360,6 +360,17 @@ public class ArbolAVL {
             
             desencriptarAVL(r.hijoIzq, desp);
             desencriptarAVL(r.hijoDer, desp);
+        }
+    }
+    
+    public int nodosCompletos(NodoArbolAVL subArbol) {
+        if (subArbol == null) {
+            return 0;
+        } else {
+            if (subArbol.hijoIzq != null && subArbol.hijoDer != null) {
+                return nodosCompletos(subArbol.hijoIzq) + nodosCompletos(subArbol.hijoDer) + 1;
+            }
+            return nodosCompletos(subArbol.hijoIzq) + nodosCompletos(subArbol.hijoDer);
         }
     }
 }

@@ -17,10 +17,9 @@ public class BuscarRegABB extends javax.swing.JFrame {
     /**
      * Creates new form BuscarRegABB
      */
-
-    ArbolBinarioB arbB=new ArbolBinarioB();
+    ArbolBinarioB arbB = new ArbolBinarioB();
     long dpiBuscado;
-    
+
     public BuscarRegABB() {
         initComponents();
         ocultarComponentes();
@@ -329,111 +328,108 @@ public class BuscarRegABB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMVolverMousePressed
-        ArbolBinarioBJF arbb=new ArbolBinarioBJF();
+        ArbolBinarioBJF arbb = new ArbolBinarioBJF();
         this.dispose();
         arbb.setVisible(true);
         ocultarComponentes();
     }//GEN-LAST:event_jMVolverMousePressed
 
     private void btnBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMousePressed
-        if(!tFBuscar.getText().isEmpty()){
-            try{
-                if(!arbB.estaVacio()){
-                   long dpiB=Long.parseLong(tFBuscar.getText());
-                   long tiempoIni= System.nanoTime();
-                   NodoArbolBinario busc=arbB.buscarNodo(dpiB);
-                   long tiempofin=System.nanoTime();
-                   long tiempotot=tiempofin-tiempoIni;
-                   String tiempoTotal=Long.toString(tiempotot);
-                   jlbTiempoBus.setText(tiempoTotal+" ns.");
-                if(busc!=null){
-                    dpiBuscado=busc.dpi;
-                    tFBuscar.setText("");
-                    System.out.println(busc.nombre+"  "+busc.dpi);
-                    mostrarComponentes();
-                    jTfNombre.setText(busc.nombre);
-                    String dpiS=Long.toString(busc.dpi);
-                    jTFDPI.setText(dpiS);
-                    String cantDS=Integer.toString(busc.cantDosis);
-                    jTFCantV.setText(cantDS);
-                    jTFV1.setText(busc.fecV1);
-                    jTFV2.setText(busc.fecV2);
-                    jTFV3.setText(busc.fecV3);
-                    jTFLugV.setText(busc.lugarV);
-                    jTFDep.setText(busc.depa);
-                    jTfMuni.setText(busc.muni);
-                    
-                }else{
-                    JOptionPane.showMessageDialog(null, "La persona buscada aun no cuenta con vacuna contra Covid-19");
-                    tFBuscar.setText("");
-                } 
-                }else{
+        if (!tFBuscar.getText().isEmpty()) {
+            try {
+                if (!arbB.estaVacio()) {
+                    long dpiB = Long.parseLong(tFBuscar.getText());
+                    long tiempoIni = System.nanoTime();
+                    NodoArbolBinario busc = arbB.buscarNodo(dpiB);
+                    long tiempofin = System.nanoTime();
+                    long tiempotot = tiempofin - tiempoIni;
+                    String tiempoTotal = Long.toString(tiempotot);
+                    jlbTiempoBus.setText(tiempoTotal + " ns.");
+                    if (busc != null) {
+                        dpiBuscado = busc.dpi;
+                        tFBuscar.setText("");
+                        mostrarComponentes();
+                        jTfNombre.setText(busc.nombre);
+                        String dpiS = Long.toString(busc.dpi);
+                        jTFDPI.setText(dpiS);
+                        String cantDS = Integer.toString(busc.cantDosis);
+                        jTFCantV.setText(cantDS);
+                        jTFV1.setText(busc.fecV1);
+                        jTFV2.setText(busc.fecV2);
+                        jTFV3.setText(busc.fecV3);
+                        jTFLugV.setText(busc.lugarV);
+                        jTFDep.setText(busc.depa);
+                        jTfMuni.setText(busc.muni);
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "La persona buscada aun no cuenta con vacuna contra Covid-19");
+                        tFBuscar.setText("");
+                    }
+                } else {
                     JOptionPane.showMessageDialog(null, "El arbol esta vacio");
                     tFBuscar.setText("");
                 }
-                
-                
-            }catch(NumberFormatException e){
+
+            } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Ingrese unicamente numeros de DPI");
                 tFBuscar.setText("");
             }
-            
-            
-        }else{
+
+        } else {
             JOptionPane.showMessageDialog(null, "Ingrese un numero de DPI");
             tFBuscar.setText("");
         }
     }//GEN-LAST:event_btnBuscarMousePressed
 
     private void jbtnGuardarEditMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnGuardarEditMousePressed
-           try{
-           String nom=jTfNombre.getText();
-           String dpis=jTFDPI.getText();
-           long dpi=Long.parseLong(dpis);
-           String cantS=jTFCantV.getText();
-           int cantidad=Integer.parseInt(cantS);
-           String fV1=jTFV1.getText();
-           String fV2=jTFV2.getText();
-           String fV3=jTFV3.getText();
-           String lugar=jTFLugV.getText();
-           String depa=jTFDep.getText();
-           String muni=jTfMuni.getText();
-           
-           boolean resp=arbB.actualizarNodo(nom, dpi, cantidad, fV1, fV2, fV3, lugar, depa, muni, dpiBuscado);
-           
-           if(resp){
-               JOptionPane.showMessageDialog(null, "Actualizacion completada");
-               dpiBuscado=Long.parseLong(jTFDPI.getText());
-           }else{
-               JOptionPane.showMessageDialog(null, "Actualizacion fallida");
-           }
-           }catch(NumberFormatException e){
-               JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
-           }
-           
+        try {
+            String nom = jTfNombre.getText();
+            String dpis = jTFDPI.getText();
+            long dpi = Long.parseLong(dpis);
+            String cantS = jTFCantV.getText();
+            int cantidad = Integer.parseInt(cantS);
+            String fV1 = jTFV1.getText();
+            String fV2 = jTFV2.getText();
+            String fV3 = jTFV3.getText();
+            String lugar = jTFLugV.getText();
+            String depa = jTFDep.getText();
+            String muni = jTfMuni.getText();
+
+            boolean resp = arbB.actualizarNodo(nom, dpi, cantidad, fV1, fV2, fV3, lugar, depa, muni, dpiBuscado);
+
+            if (resp) {
+                JOptionPane.showMessageDialog(null, "Actualizacion completada");
+                dpiBuscado = Long.parseLong(jTFDPI.getText());
+            } else {
+                JOptionPane.showMessageDialog(null, "Actualizacion fallida");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+        }
+
     }//GEN-LAST:event_jbtnGuardarEditMousePressed
 
     private void jbtnEliminarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnEliminarMousePressed
         int opcion = JOptionPane.showConfirmDialog(null, "¿Desea eliminar este registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
-        
+
         if (opcion == JOptionPane.YES_OPTION) {
-            try{
-                boolean conf=arbB.EliminarNodo(dpiBuscado);
-                
-                if(conf){
+            try {
+                boolean conf = arbB.EliminarNodo(dpiBuscado);
+
+                if (conf) {
                     JOptionPane.showMessageDialog(null, "Eliminacion correcta");
                     ocultarComponentes();
-                    ArbolBinarioBJF arbolAABBV= new ArbolBinarioBJF();
+                    ArbolBinarioBJF arbolAABBV = new ArbolBinarioBJF();
                     arbolAABBV.setVisible(true);
                     this.dispose();
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "No se pudo eliminar");
                 }
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
             }
         } else {
-            
+
         }
     }//GEN-LAST:event_jbtnEliminarMousePressed
 
@@ -471,8 +467,8 @@ public class BuscarRegABB extends javax.swing.JFrame {
             }
         });
     }
-    
-    private void ocultarComponentes(){
+
+    private void ocultarComponentes() {
         jLbNombre.setVisible(false);
         jTfNombre.setVisible(false);
         jLBDPI.setVisible(false);
@@ -496,8 +492,8 @@ public class BuscarRegABB extends javax.swing.JFrame {
         jbtnEliminar.setVisible(false);
         jlbTiempoBus.setText("");
     }
-    
-    private void mostrarComponentes(){
+
+    private void mostrarComponentes() {
         jLbNombre.setVisible(true);
         jTfNombre.setVisible(true);
         jLBDPI.setVisible(true);

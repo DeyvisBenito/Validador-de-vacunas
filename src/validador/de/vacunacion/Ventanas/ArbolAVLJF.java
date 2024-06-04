@@ -4,9 +4,11 @@
  */
 package validador.de.vacunacion.Ventanas;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import validador.de.vacunacion.ArbolAVL;
 import validador.de.vacunacion.Conexion;
+import validador.de.vacunacion.GraficaAVL;
 import validador.de.vacunacion.Graphviz;
 import validador.de.vacunacion.NodoArbolAVL;
 import validador.de.vacunacion.Ventanas.BuscarRegistroAVL;
@@ -423,20 +425,13 @@ public class ArbolAVLJF extends javax.swing.JFrame {
     }//GEN-LAST:event_jMCargarAVLMousePressed
 
     private void jBtnGraphvizMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnGraphvizMousePressed
+        GraficaAVL grap=new GraficaAVL();
+        grap.setArbol(arbolAVL);
 
-        Graphviz graphviz = new Graphviz();
-        String rutaArchivoDOT = "arbolAVL.dot";
-        String rutaArchivoPNG = "arbolAVL.png";
-        graphviz.generarArchivoDOT(arbolAVL.raizAVL, rutaArchivoDOT);
-        boolean resp = graphviz.generarImagenDesdeDOT(rutaArchivoDOT, rutaArchivoPNG);
-
-        if (resp) {
-            GraphvizAVL gAVL = new GraphvizAVL(rutaArchivoPNG);
-            gAVL.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
-        }
-
+        JFrame gABB = new JFrame();
+        gABB.getContentPane().add(grap);
+        gABB.setSize(800, 600);
+        gABB.setVisible(true);
     }//GEN-LAST:event_jBtnGraphvizMousePressed
 
     private void jMPersonalizadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMPersonalizadoMousePressed
