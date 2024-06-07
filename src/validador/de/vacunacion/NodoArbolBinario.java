@@ -29,6 +29,10 @@ public class NodoArbolBinario {
         this.hijoizq=null;
     }
     
+    public NodoArbolBinario(){
+        
+    }
+    
     
     
 }

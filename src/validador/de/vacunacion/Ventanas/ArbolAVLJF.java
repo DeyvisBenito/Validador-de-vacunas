@@ -4,9 +4,12 @@
  */
 package validador.de.vacunacion.Ventanas;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import validador.de.vacunacion.ArbolAVL;
+import validador.de.vacunacion.CompresionHash;
 import validador.de.vacunacion.Conexion;
 import validador.de.vacunacion.GraficaAVL;
 import validador.de.vacunacion.Graphviz;
@@ -77,6 +80,9 @@ public class ArbolAVLJF extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMEncrypt = new javax.swing.JMenu();
         jMDesencrypt = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMComprimir = new javax.swing.JMenu();
+        jMDescomprimir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -364,6 +370,29 @@ public class ArbolAVLJF extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-compression-30.png"))); // NOI18N
+        jMenu2.setText("Compresion");
+
+        jMComprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-archivo-30.png"))); // NOI18N
+        jMComprimir.setText(" Comprimir en txt");
+        jMComprimir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMComprimirMousePressed(evt);
+            }
+        });
+        jMenu2.add(jMComprimir);
+
+        jMDescomprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-open-archive-30.png"))); // NOI18N
+        jMDescomprimir.setText("Descomprimir txt");
+        jMDescomprimir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMDescomprimirMousePressed(evt);
+            }
+        });
+        jMenu2.add(jMDescomprimir);
+
+        jMenuBar1.add(jMenu2);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -403,7 +432,7 @@ public class ArbolAVLJF extends javax.swing.JFrame {
             int opcion = JOptionPane.showConfirmDialog(null, "¿Desea guardar el arbol en un .txt?", "Confirmar", JOptionPane.YES_NO_OPTION);
             if (opcion == JOptionPane.YES_OPTION) {
                 Conexion con = new Conexion();
-                String rutaArchivo = "C:/Users/deyvi/Downloads/arbolAVL.txt"; //Ruta del archivo a guardar
+                String rutaArchivo = "arbolAVL.txt"; //Ruta del archivo a guardar
                 boolean conf = con.guardarAVLTXT(arbolAVL.raizAVL, rutaArchivo);
 
                 if (conf) {
@@ -501,6 +530,47 @@ public class ArbolAVLJF extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBtnGuardarMousePressed
 
+    private void jMComprimirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMComprimirMousePressed
+        if (!arbolAVL.estaVacio()) {
+            int opcion = JOptionPane.showConfirmDialog(null, "Desea Comprimir el arbol en un archivo de texto?", "Confirmar", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION) {
+                CompresionHash comp = new CompresionHash();
+                comp.guardarRegistros(arbolAVL.raizAVL);
+                boolean resp = comp.guardartxtAVL("arbolAVLComprimido.txt");
+                if (resp) {
+                    JOptionPane.showMessageDialog(null, "Archivo comprimido guardado");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+                }
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "El arbol esta vacio");
+        }
+    }//GEN-LAST:event_jMComprimirMousePressed
+
+    private void jMDescomprimirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMDescomprimirMousePressed
+        int opcion = JOptionPane.showConfirmDialog(null, "Desea Descomprimir un archivo?", "Confirmar", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION) {
+                CompresionHash comp = new CompresionHash();
+                comp.cargarTablaHashAVL("TablasHash/TablaHashAVL.txt");
+                // Seleccionar Archivo
+                String seleccion = "";
+                JFileChooser jfc1 = new JFileChooser();
+                FileNameExtensionFilter filtrado = new FileNameExtensionFilter("txt", "txt");
+                jfc1.setFileFilter(filtrado);
+
+                int respuesta = jfc1.showOpenDialog(this);
+
+                if (respuesta == JFileChooser.APPROVE_OPTION) {
+                    seleccion = jfc1.getSelectedFile().getPath();
+                    comp.cargarTxtComprimidoAVL(seleccion);
+                    
+                }
+
+            }   
+    }//GEN-LAST:event_jMDescomprimirMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -556,13 +626,16 @@ public class ArbolAVLJF extends javax.swing.JFrame {
     private javax.swing.JLabel jLbV2;
     private javax.swing.JLabel jLbV3;
     private javax.swing.JMenu jMCargarAVL;
+    private javax.swing.JMenu jMComprimir;
     private javax.swing.JMenu jMConfiguraciones;
+    private javax.swing.JMenu jMDescomprimir;
     private javax.swing.JMenu jMDesencrypt;
     private javax.swing.JMenu jMEncrypt;
     private javax.swing.JMenu jMGuardarAVL;
     private javax.swing.JMenu jMInicio;
     private javax.swing.JMenu jMPersonalizado;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTfCantD;

@@ -119,6 +119,38 @@
             </Menu>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu4">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icons/icons8-compression-30.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Compresion"/>
+          </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="jMComprimir">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/icons8-archivo-30.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Comprimir en txt"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMComprimirMousePressed"/>
+              </Events>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="jMDescomprimir">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/icons8-open-archive-30.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Descomprimir txt"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMDescomprimirMousePressed"/>
+              </Events>
+            </Menu>
+          </SubComponents>
+        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
@@ -373,7 +405,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBtnGraphviz">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Imprimir Graphviz"/>
+            <Property name="text" type="java.lang.String" value="Imprimir Grafica"/>
           </Properties>
           <Events>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnGraphvizMousePressed"/>

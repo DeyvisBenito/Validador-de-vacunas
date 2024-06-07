@@ -57,7 +57,7 @@ public class Conexion {
                     arbolAVL.insertar(nombre, dpi);
 
                 } catch (NumberFormatException e) {
-                    System.out.println("DPI no valido en el registro: " + linea);
+                    
                 }
             }
 
@@ -102,7 +102,7 @@ public class Conexion {
                     arbolAVL.insertar(nombre, dpi);
 
                 } catch (NumberFormatException e) {
-                    System.out.println("DPI no valido en el registro: " + linea);
+                    
                 }
                 parar = parar + 1;
             }
@@ -151,7 +151,7 @@ public class Conexion {
                         }
 
                     } catch (NumberFormatException e) {
-                        System.out.println("DPI no valido en el registro: " + linea);
+                        
                     }
 
                 }
@@ -207,7 +207,7 @@ public class Conexion {
                         }
 
                     } catch (NumberFormatException e) {
-                        System.out.println("DPI no valido en el registro: " + linea);
+                        
                     }
 
                 }
@@ -247,7 +247,7 @@ public class Conexion {
                     arbol.AgregarNodo(nombre, dpi);
 
                 } catch (NumberFormatException e) {
-                    System.out.println("DPI no valido en el registro: " + linea);
+                    
                 }
             }
 
@@ -291,7 +291,7 @@ public class Conexion {
                     arbol.AgregarNodo(nombre, dpi);
 
                 } catch (NumberFormatException e) {
-                    System.out.println("DPI no valido en el registro: " + linea);
+                    
                 }
                 parar = parar + 1;
             }
@@ -329,7 +329,7 @@ public class Conexion {
                     arbolAVL.insertar(nombre, dpi);
 
                 } catch (NumberFormatException e) {
-                    System.out.println("DPI no valido en el registro: " + linea);
+                    
                 }
             }
 
@@ -373,7 +373,7 @@ public class Conexion {
                     arbolAVL.insertar(nombre, dpi);
 
                 } catch (NumberFormatException e) {
-                    System.out.println("DPI no valido en el registro: " + linea);
+                    
                 }
                 parar = parar + 1;
             }
@@ -411,7 +411,7 @@ public class Conexion {
                         }
 
                     } catch (NumberFormatException e) {
-                        System.out.println("DPI no valido en el registro: " + linea);
+                        
                     }
 
                 }
@@ -456,7 +456,7 @@ public class Conexion {
                         }
 
                     } catch (NumberFormatException e) {
-                        System.out.println("DPI no valido en el registro: " + linea);
+                        
                     }
 
                 }
@@ -496,7 +496,7 @@ public class Conexion {
                         }
 
                     } catch (NumberFormatException e) {
-                        System.out.println("DPI no valido en el registro: " + linea);
+                        
                     }
 
                 }
@@ -541,7 +541,7 @@ public class Conexion {
                         }
 
                     } catch (NumberFormatException e) {
-                        System.out.println("DPI no valido en el registro: " + linea);
+                        
                     }
 
                 }

@@ -163,15 +163,6 @@ public class ArbolAVL {
         }
     }
 
-    public void inOrden(NodoArbolAVL r, JTextArea inscritos) {
-        if (r != null) {
-            inOrden(r.hijoIzq, inscritos);
-            inscritos.append(r.nombre + "  " + r.dpi + "\n");
-            System.out.println(r.nombre + "  " + r.dpi);
-            inOrden(r.hijoDer, inscritos);
-        }
-
-    }
 
     // Método de recorrido en preorden que acepta el modelo de la tabla
     public void PreOrden(NodoArbolAVL r, DefaultTableModel modelo) {

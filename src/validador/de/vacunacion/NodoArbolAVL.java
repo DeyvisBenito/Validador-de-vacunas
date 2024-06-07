@@ -28,4 +28,8 @@ public class NodoArbolAVL {
         this.hijoIzq=null;
         this.fe=0;
     }
+    
+    public NodoArbolAVL(){
+        
+    }
 }

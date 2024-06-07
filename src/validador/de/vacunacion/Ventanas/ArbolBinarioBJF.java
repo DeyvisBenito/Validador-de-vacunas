@@ -4,9 +4,12 @@
  */
 package validador.de.vacunacion.Ventanas;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import validador.de.vacunacion.ArbolBinarioB;
+import validador.de.vacunacion.CompresionHash;
 import validador.de.vacunacion.Conexion;
 import validador.de.vacunacion.Graphviz;
 import validador.de.vacunacion.NodoArbolBinario;
@@ -84,6 +87,9 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMEncrypt = new javax.swing.JMenu();
         jMDecrypt = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMComprimir = new javax.swing.JMenu();
+        jMDescomprimir = new javax.swing.JMenu();
 
         jMenu1.setText("jMenu1");
 
@@ -115,7 +121,7 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
             }
         });
 
-        jBtnGraphviz.setText("Imprimir Graphviz");
+        jBtnGraphviz.setText("Imprimir Grafica");
         jBtnGraphviz.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jBtnGraphvizMousePressed(evt);
@@ -301,7 +307,6 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
                     .addComponent(jTfLugarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTfDepa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTfMuni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,6 +402,29 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-compression-30.png"))); // NOI18N
+        jMenu4.setText("Compresion");
+
+        jMComprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-archivo-30.png"))); // NOI18N
+        jMComprimir.setText("Comprimir en txt");
+        jMComprimir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMComprimirMousePressed(evt);
+            }
+        });
+        jMenu4.add(jMComprimir);
+
+        jMDescomprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-open-archive-30.png"))); // NOI18N
+        jMDescomprimir.setText("Descomprimir txt");
+        jMDescomprimir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMDescomprimirMousePressed(evt);
+            }
+        });
+        jMenu4.add(jMDescomprimir);
+
+        jMenuBar1.add(jMenu4);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -441,7 +469,7 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
             int opcion = JOptionPane.showConfirmDialog(null, "¿Desea guardar el arbol en un .txt?", "Confirmar", JOptionPane.YES_NO_OPTION);
             if (opcion == JOptionPane.YES_OPTION) {
                 Conexion con = new Conexion();
-                String rutaArchivo = "C:/Users/deyvi/Downloads/arbolBB.txt"; // Especifica la ruta del archivo aquí
+                String rutaArchivo = "arbolBB.txt"; // Especifica la ruta del archivo aquí
                 boolean conf = con.guardarABBTXT(arbolB.raiz, rutaArchivo);
 
                 if (conf) {
@@ -524,22 +552,73 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnGuardarMousePressed
 
     private void jMEncryptMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMEncryptMousePressed
-        int opcion = JOptionPane.showConfirmDialog(null, "Desea encriptar el arbol?", "Confirmar", JOptionPane.YES_NO_OPTION);
-        if (opcion == JOptionPane.YES_OPTION) {
-            arbolB.encriptarABB(arbolB.raiz, 3);
-            JOptionPane.showMessageDialog(null, "Arbol encriptado");
+        if (!arbolB.estaVacio()) {
+            int opcion = JOptionPane.showConfirmDialog(null, "Desea encriptar el arbol?", "Confirmar", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION) {
+                arbolB.encriptarABB(arbolB.raiz, 3);
+                JOptionPane.showMessageDialog(null, "Arbol encriptado");
 
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "El arbol esta vacio");
         }
     }//GEN-LAST:event_jMEncryptMousePressed
 
     private void jMDecryptMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMDecryptMousePressed
-        int opcion = JOptionPane.showConfirmDialog(null, "Desea desencriptar el arbol?", "Confirmar", JOptionPane.YES_NO_OPTION);
-        if (opcion == JOptionPane.YES_OPTION) {
-            arbolB.desencriptarABB(arbolB.raiz, 3);
-            JOptionPane.showMessageDialog(null, "Arbol desencriptado");
+        if (!arbolB.estaVacio()) {
+            int opcion = JOptionPane.showConfirmDialog(null, "Desea desencriptar el arbol?", "Confirmar", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION) {
+                arbolB.desencriptarABB(arbolB.raiz, 3);
+                JOptionPane.showMessageDialog(null, "Arbol desencriptado");
 
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "El arbol esta vacio");
         }
     }//GEN-LAST:event_jMDecryptMousePressed
+
+    private void jMComprimirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMComprimirMousePressed
+        if (!arbolB.estaVacio()) {
+            int opcion = JOptionPane.showConfirmDialog(null, "Desea Comprimir el arbol en un archivo de texto?", "Confirmar", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION) {
+                CompresionHash comp = new CompresionHash();
+                comp.guardarRegistros(arbolB.raiz);
+                boolean resp = comp.guardartxt("arbolBBComprimido.txt");
+                if (resp) {
+                    JOptionPane.showMessageDialog(null, "Archivo comprimido guardado");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+                }
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "El arbol esta vacio");
+        }
+
+    }//GEN-LAST:event_jMComprimirMousePressed
+
+    private void jMDescomprimirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMDescomprimirMousePressed
+        
+            int opcion = JOptionPane.showConfirmDialog(null, "Desea Descomprimir un archivo?", "Confirmar", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION) {
+                CompresionHash comp = new CompresionHash();
+                comp.cargarTablaHash("TablasHash/TablaHashABB.txt");
+                // Seleccionar Archivo
+                String seleccion = "";
+                JFileChooser jfc1 = new JFileChooser();
+                FileNameExtensionFilter filtrado = new FileNameExtensionFilter("txt", "txt");
+                jfc1.setFileFilter(filtrado);
+
+                int respuesta = jfc1.showOpenDialog(this);
+
+                if (respuesta == JFileChooser.APPROVE_OPTION) {
+                    seleccion = jfc1.getSelectedFile().getPath();
+                    comp.cargarTxtComprimido(seleccion);
+                    
+                }
+
+            }   
+    }//GEN-LAST:event_jMDescomprimirMousePressed
 
     /**
      * @param args the command line arguments
@@ -599,7 +678,9 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
     private javax.swing.JLabel jLbV2;
     private javax.swing.JLabel jLbV3;
     private javax.swing.JMenu jMCargarABB;
+    private javax.swing.JMenu jMComprimir;
     private javax.swing.JMenu jMDecrypt;
+    private javax.swing.JMenu jMDescomprimir;
     private javax.swing.JMenu jMEncrypt;
     private javax.swing.JMenu jMGuardarTXT;
     private javax.swing.JMenu jMInicio;
@@ -607,6 +688,7 @@ public class ArbolBinarioBJF extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;

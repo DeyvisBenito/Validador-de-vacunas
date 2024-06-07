@@ -54,16 +54,6 @@ public class ArbolBinarioB {
         return raiz == null;
     }
 
-    public void inOrden(NodoArbolBinario r, JTextArea inscritos) {
-        if (r != null) {
-            inOrden(r.hijoizq, inscritos);
-            inscritos.append(r.nombre + "  " + r.dpi + "\n");
-            System.out.println(r.nombre + "  " + r.dpi);
-            inOrden(r.hijoder, inscritos);
-        }
-
-    }
-
     // Método de recorrido en preorden que acepta el modelo de la tabla
     public void inOrden(NodoArbolBinario r, DefaultTableModel modelo) {
         if (r != null) {
